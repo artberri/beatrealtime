@@ -5,12 +5,15 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
     var clientId = '715077343701';
     var apiKey = 'AIzaSyAUs37-gXe06-up53wBa5-ceJIvZloFJH0';
     var scopes = 'https://www.googleapis.com/auth/analytics.readonly';
+    var onAuthorized, onUnAuthorized;
 
     var methods = {
         init: function() {
             var that = this;
 
-            return function() {
+            return function(onAuthorizedCallback, onUnAuthorizedCallback) {
+                onAuthorized = onAuthorizedCallback;
+                onUnAuthorized = onUnAuthorizedCallback;
                 gapi.client.setApiKey(apiKey);
                 window.setTimeout(that.checkAuth(), 16);
             };
@@ -38,40 +41,22 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
             };
         },
         handleUnAuthorized: function() {
-            var authorizeButton = document.getElementById('authorize-button');
-            var makeApiCallButton = document.getElementById('make-api-call-button');
-            var that = this;
-
-            // Show the 'Authorize Button' and hide the 'Get Visits' button
-            makeApiCallButton.style.visibility = 'hidden';
-            authorizeButton.style.visibility = '';
-
-            // When the 'Authorize' button is clicked, call the handleAuthClick function
-            authorizeButton.onclick = function() {
-                that.handleAuthClick();
-            };
+            onUnAuthorized();
         },
         handleAuthClick : function() {
-            gapi.auth.authorize({'client_id': clientId, scope: scopes, immediate: false}, this.handleAuthResult());
-            return false;
+            var that = this;
+
+            return function() {
+                gapi.auth.authorize({'client_id': clientId, scope: scopes, immediate: false}, that.handleAuthResult());
+                return false;
+            };
         },
         loadAnalyticsClient: function() {
             // Load the Analytics client and set handleAuthorized as the callback function
             gapi.client.load('analytics', 'v3', this.handleAuthorized());
         },
         handleAuthorized : function() {
-            var authorizeButton = document.getElementById('authorize-button');
-            var makeApiCallButton = document.getElementById('make-api-call-button');
-            var that = this;
-
-            // Show the 'Get Visits' button and hide the 'Authorize' button
-            makeApiCallButton.style.visibility = '';
-            authorizeButton.style.visibility = 'hidden';
-
-            // When the 'Get Visits' button is clicked, call the makeAapiCall function
-            makeApiCallButton.onclick = function() {
-                that.makeApiCall();
-            };
+            onAuthorized();
         },
         makeApiCall: function() {
             this.queryAccounts();
@@ -204,6 +189,7 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
     };
 
     return {
-        init: methods.init()
+        init: methods.init(),
+        handleAuthClick: methods.handleAuthClick()
     };
 });
