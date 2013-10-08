@@ -1,0 +1,11 @@
+{
+  "name": "gaworld",
+  "version": "0.0.1",
+  "dependencies": {
+    "requirejs": "~2.1.8",
+    "d3": "~3.3.6",
+    "topojson": "~1.4.2",
+    "requirejs-plugins": "~1.0.2"
+  },
+  "devDependencies": {}
+}
