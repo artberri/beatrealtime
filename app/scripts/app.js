@@ -11,15 +11,19 @@ define(['gapi', 'world'], function (gapi, world) {
             };
         },
         logged: function() {
-            var authorizeButton = document.getElementById('authorize-button');
 
-            // Show the 'Get Visits' button and hide the 'Authorize' button
+            console.log('logged');
+
+            var authorizeButton = document.getElementById('authorize-button');
             authorizeButton.style.visibility = 'hidden';
 
-            // When the 'Get Visits' button is clicked, call the makeAapiCall function
-            world.init();
             // gapi.makeApiCall();
-
+            // When the 'Get Visits' button is clicked, call the makeAapiCall function
+            //
+            console.log('World Init 3');
+            world.init(function() {
+                gapi.realtime(53340307);
+            });
         },
         unlogged: function() {
             var authorizeButton = document.getElementById('authorize-button');

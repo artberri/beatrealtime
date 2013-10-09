@@ -2,6 +2,8 @@
 define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
     'use strict';
 
+    var realtime;
+
     var title = d3.select('h1');
 
     var width = 960,
@@ -17,8 +19,6 @@ define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
 
     var c = canvas.node().getContext('2d');
 
-    var graticule = d3.geo.graticule();
-
     var path = d3.geo.path()
         .projection(projection)
         .context(c);
@@ -27,7 +27,13 @@ define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
         init: function() {
             var that = this;
 
-            return function() {
+            return function(callback) {
+                realtime = callback;
+
+                console.log(',,,e');
+                console.log(realtime);
+                console.log(',,,e');
+
                 queue()
                     .defer(d3.json, 'data/world-110m.json')
                     .defer(d3.tsv, 'data/world-country-names.tsv')
@@ -51,6 +57,13 @@ define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
             }).sort(function(a, b) {
                 return a.name.localeCompare(b.name);
             });
+
+            console.log('---- ready');
+            console.log(realtime);
+            realtime();
+            setInterval(function() {
+                realtime();
+            }, 10000);
 
             (function transition() {
                 d3.transition()

@@ -52,20 +52,30 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
             };
         },
         loadAnalyticsClient: function() {
+            console.log('loadAnalyticsClient');
             // Load the Analytics client and set handleAuthorized as the callback function
             gapi.client.load('analytics', 'v3', this.handleAuthorized());
         },
         handleAuthorized : function() {
-            onAuthorized();
+            return function() {
+                onAuthorized();
+            };
         },
         makeApiCall: function() {
-            this.queryAccounts();
+            var that = this;
+
+            return function() {
+                that.queryAccounts();
+            };
         },
         queryAccounts: function() {
+            var that = this;
             console.log('Querying Accounts.');
 
+            console.log(gapi.client);
+
             // Get a list of all Google Analytics accounts for this user
-            gapi.client.analytics.management.accounts.list().execute(this.handleAccounts());
+            gapi.client.analytics.management.accounts.list().execute(that.handleAccounts());
         },
         handleAccounts: function() {
             var that = this;
@@ -153,7 +163,7 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
 
                         // Step 3. Query the Core Reporting API
                         //queryCoreReportingApi(firstProfileId);
-                        that.realtime(firstProfileId);
+                        // that.realtime(firstProfileId);
 
                     }
                     else {
@@ -165,31 +175,34 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
                 }
             };
         },
-        realtime: function(firstProfileId) {
+        realtime: function() {
+            return function(firstProfileId) {
+                console.log('realtime - ');
+                console.log(firstProfileId);
 
-            console.log(firstProfileId);
+                var request = gapi.client.request({
+                    method:'GET',
+                    path:'/analytics/v3/data/realtime',
+                    params:{
+                        ids: 'ga:' + firstProfileId,
+                        metrics: 'ga:activeVisitors',
+                        dimensions: 'ga:country,ga:browser'
+                    }
+                });
 
-            // gapi.client.analytics.data.ga.get()
-            //
-            var request = gapi.client.request({
-                method:'GET',
-                path:'/analytics/v3/data/realtime',
-                params:{
-                    ids: 'ga:' + firstProfileId,
-                    metrics: 'ga:activeVisitors',
-                    dimensions: 'ga:country'
-                }
-            });
-
-            request.execute(function(resp){
-                console.log(resp);
-            });
-
+                request.execute(function(resp){
+                    console.log(resp.totalResults);
+                    var visitsCount = document.getElementById('visits-count');
+                    visitsCount.innerHTML = resp.totalResults;
+                });
+            };
         }
     };
 
     return {
         init: methods.init(),
-        handleAuthClick: methods.handleAuthClick()
+        handleAuthClick: methods.handleAuthClick(),
+        makeApiCall: methods.makeApiCall(),
+        realtime: methods.realtime()
     };
 });
