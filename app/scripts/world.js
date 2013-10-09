@@ -67,10 +67,10 @@ define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
                         return function(t) {
                             projection.rotate(r(t));
                             c.clearRect(0, 0, width, height);
-                            c.fillStyle = '#000011';
+                            c.fillStyle = '#bbb';
                             c.fill();
 
-                            c.fillStyle = '#111111';
+                            c.fillStyle = '#555';
                             c.beginPath();
                             path(land);
                             c.fill();
@@ -80,14 +80,14 @@ define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
                             path(countries[i]);
                             c.fill();
 
-                            c.strokeStyle = '#000';
+                            c.strokeStyle = '#222';
                             c.lineWidth = 0.5;
                             c.beginPath();
                             path(borders);
                             c.stroke();
 
                             c.strokeStyle = '#000';
-                            c.lineWidth = 2;
+                            c.lineWidth = 1;
                             c.beginPath();
                             path(globe);
                             c.stroke();
