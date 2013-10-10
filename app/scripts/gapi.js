@@ -72,40 +72,18 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
                 onAuthorized();
             };
         },
-        makeApiCall: function() {
-            var that = this;
-
-            return function() {
-                that.queryAccounts();
-            };
-        },
         queryAccounts: function() {
             var that = this;
-            console.log('Querying Accounts.');
 
-            console.log(gapi.client);
-
-            // Get a list of all Google Analytics accounts for this user
-            gapi.client.analytics.management.accounts.list().execute(that.handleAccounts());
+            return function(callback) {
+                gapi.client.analytics.management.accounts.list().execute(that.handleAccounts(callback));
+            };
         },
-        handleAccounts: function() {
-            var that = this;
-
+        handleAccounts: function(callback) {
             return function(results) {
                 if (!results.code) {
                     if (results && results.items && results.items.length) {
-
-                        console.log( results.items);
-
-                        // Get the first Google Analytics account
-                        var firstAccountId = results.items[0].id;
-
-                        // Guggen
-                        firstAccountId = 27333748;
-
-                        // Query for Web Properties
-                        that.queryWebproperties(firstAccountId);
-
+                        callback(results.items);
                     }
                     else {
                         console.log('No accounts found for this user.');
@@ -116,30 +94,21 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
                 }
             };
         },
-        queryWebproperties: function(accountId) {
-            console.log('Querying Webproperties.');
-
-            // Get a list of all the Web Properties for the account
-            gapi.client.analytics.management.webproperties.list({'accountId': accountId}).execute(this.handleWebproperties());
-        },
-        handleWebproperties: function() {
+        queryWebproperties: function() {
             var that = this;
 
+            // Get a list of all the Web Properties for the account
+            return function(accountId, callback) {
+                gapi.client.analytics.management.webproperties.list({
+                    'accountId': accountId
+                }).execute(that.handleWebproperties(callback));
+            };
+        },
+        handleWebproperties: function(callback) {
             return function(results) {
                 if (!results.code) {
                     if (results && results.items && results.items.length) {
-
-                        // Get the first Google Analytics account
-                        console.log( results.items);
-                        var firstAccountId = results.items[0].accountId;
-                        // TODO
-                        firstAccountId = 27333748;
-                        // Get the first Web Property ID
-                        var firstWebpropertyId = results.items[0].id;
-
-                        // Query for Views (Profiles)
-                        that.queryProfiles(firstAccountId, firstWebpropertyId);
-
+                        callback( results.items);
                     }
                     else {
                         console.log('No webproperties found for this user.');
@@ -150,32 +119,22 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
                 }
             };
         },
-        queryProfiles: function(accountId, webpropertyId) {
-            console.log('Querying Views (Profiles). ' + webpropertyId);
-
-            // Get a list of all Views (Profiles) for the first Web Property of the first Account
-            gapi.client.analytics.management.profiles.list({
-                'accountId': accountId,
-                'webPropertyId': webpropertyId
-            }).execute(this.handleProfiles());
-        },
-        handleProfiles: function() {
+        queryProfiles: function() {
             var that = this;
 
+            return function(accountId, webpropertyId, callback) {
+                // Get a list of all Views (Profiles) for the first Web Property of the first Account
+                gapi.client.analytics.management.profiles.list({
+                    'accountId': accountId,
+                    'webPropertyId': webpropertyId
+                }).execute(that.handleProfiles(callback));
+            };
+        },
+        handleProfiles: function(callback) {
             return function(results) {
                 if (!results.code) {
                     if (results && results.items && results.items.length) {
-
-                        console.log(results.items);
-
-                        // Get the first View (Profile) ID
-                        var firstProfileId = results.items[0].id;
-                        console.log(firstProfileId + ' ---- ');
-
-                        // Step 3. Query the Core Reporting API
-                        //queryCoreReportingApi(firstProfileId);
-                        // that.realtime(firstProfileId);
-
+                        callback(results.items);
                     }
                     else {
                         console.log('No views (profiles) found for this user.');
@@ -305,7 +264,9 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
     return {
         init: methods.init(),
         handleAuthClick: methods.handleAuthClick(),
-        makeApiCall: methods.makeApiCall(),
+        queryAccounts: methods.queryAccounts(),
+        queryWebproperties: methods.queryWebproperties(),
+        queryProfiles: methods.queryProfiles(),
         realtime: methods.realtime()
     };
 });

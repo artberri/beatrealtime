@@ -6,30 +6,49 @@ http://yuilibrary.com/license/
 */
 html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
 
-/* Scroll Bar Master Styling Starts Here */
-@-moz-document url-prefix(http://),url-prefix(https://) {
-    scrollbar {
-       -moz-appearance: none !important;
-       background: rgb(0,255,0) !important;
-    }
-    thumb,scrollbarbutton {
-       -moz-appearance: none !important;
-       background-color: rgb(0,0,255) !important;
-    }
-
-    thumb:hover,scrollbarbutton:hover {
-       -moz-appearance: none !important;
-       background-color: rgb(255,0,0) !important;
-    }
-
-    scrollbarbutton {
-       display: none !important;
-    }
-
-    scrollbar[orient="vertical"] {
-      min-width: 15px !important;
-    }
+/* Google Button */
+#customBtn {
+    margin-top: 50px;
+    display: inline-block;
+    background: #cc3732;
+    color: white;
+    width: 300px;
+    border-radius: 5px;
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
 }
+#customBtn.hide {
+    opacity: 0;
+}
+
+#customBtn a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+#customBtn:hover {
+  background: #e74b37;
+  cursor: hand;
+}
+span.label {
+  font-weight: bold;
+}
+span.icon {
+  background: url('../images/g.png') transparent 10px 50% no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+}
+span.buttonText {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
 
 /*
 Copyright 2013 Alberto Varela. All rights reserved.
@@ -47,8 +66,12 @@ body {
     height: 100%;
 }
 
-h1, h2, h3, h4, p, ul, li, a, span {
+h1, h2, h3, h4, p, ul, li, input, textarea, div {
     font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.blue {
+    color: #57e9be;
 }
 
 .height100 {
@@ -62,19 +85,55 @@ h1, h2, h3, h4, p, ul, li, a, span {
     width: 100%;
     background: #222626;
     padding: 0 50px;
+    height: 60px;
 }
 
 .header-text {
     font-size: 20px;
     color: #fff;
-    padding: 20px 0;
+    height: 60px;
+    line-height: 60px;
     text-transform: uppercase;
+    font-family: 'Bubbler One', Arial, sans-serif;
+    position: absolute;
+    left: -200px;
 }
 
 .authorize-button {
     position: absolute;
     top: 0;
     right: 50px;
+    display: none;
+}
+
+#home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+}
+
+#home-inner {
+    background: #222626;
+    height: 100%;
+    margin-top: 60px;
+    text-align: center;
+}
+
+#home-inner h2 {
+    font-size: 128px;
+    text-transform: uppercase;
+    font-family: 'Bubbler One', Arial, sans-serif;
+    color: white;
+}
+
+#subtitle {
+    font-size: 28px;
+}
+
+#selectors {
+    margin-top: 50px;
 }
 
 .content {

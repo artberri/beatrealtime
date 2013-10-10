@@ -20,9 +20,38 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <header class="header">
-             <h1 class="header-text">Gaworld</h1>
+             <h1 class="header-text"><span class="blue">Beat</span>Realtime</h1>
         </header>
-        <button id="authorize-button" class="authorize-button" style="visibility: hidden">Authorize</button>
+        <!--<button id="deauthorize-button" class="authorize-button">Authorize</button>-->
+        <div id="home" class="height100">
+            <div id="home-inner">
+                <h2><span class="blue">Beat</span>Realtime</h2>
+                <p id="subtitle">Have a look to your visitors right now!</p>
+                <div id="gSignInWrapper">
+                    <div id="customBtn" class="customGPlusSignIn" >
+                        <a id="authorize-button" href="#"><span class="icon"></span>
+                        <span class="buttonText">Sign in with Google</span></a>
+                    </div>
+                </div>
+                <div id="selectors">
+                    <div class="selector-container">
+                        <select id="account-selector">
+                            <option value="0">Choose account</option>
+                        </select>
+                    </div>
+                    <div class="selector-container">
+                        <select id="properties-selector">
+                            <option value="0">Choose property</option>
+                        </select>
+                    </div>
+                    <div class="selector-container">
+                        <select id="profile-selector">
+                            <option value="0">Choose profile</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="content height100">
             <div class="half left height100">
                 <div class="data height100">
