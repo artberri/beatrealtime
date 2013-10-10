@@ -63,7 +63,7 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
                                                 // Magic starts
                                                 that.realtime(profileId);
                                             }
-                                        });
+                                        }).addClass('show');
                                     });
                                 }
                             }).addClass('show');
