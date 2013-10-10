@@ -4,16 +4,17 @@ define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
 
     var realtime;
 
-    var title = d3.select('h1');
+    var title = d3.select('#country');
 
-    var width = 960,
-        height = 500;
+    var width = window.innerWidth/2,
+        height = width/1.92;
 
     var projection = d3.geo.orthographic()
-        .scale(248)
+        .scale(190)
         .clipAngle(90);
 
-    var canvas = d3.select('body').append('canvas')
+    var canvas = d3.select('#world').append('canvas')
+        .attr('class', 'world-canvas')
         .attr('width', width)
         .attr('height', height);
 
@@ -61,9 +62,9 @@ define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
             console.log('---- ready');
             console.log(realtime);
             realtime();
-            setInterval(function() {
+          /*  setInterval(function() {
                 realtime();
-            }, 10000);
+            }, 10000);*/
 
             (function transition() {
                 d3.transition()
@@ -80,15 +81,15 @@ define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
                         return function(t) {
                             projection.rotate(r(t));
                             c.clearRect(0, 0, width, height);
-                            c.fillStyle = '#bbb';
+                            c.fillStyle = '#272c2d';
                             c.fill();
 
-                            c.fillStyle = '#555';
+                            c.fillStyle = '#5a6063';
                             c.beginPath();
                             path(land);
                             c.fill();
 
-                            c.fillStyle = '#f00';
+                            c.fillStyle = '#57e9be';
                             c.beginPath();
                             path(countries[i]);
                             c.fill();
@@ -99,8 +100,8 @@ define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
                             path(borders);
                             c.stroke();
 
-                            c.strokeStyle = '#000';
-                            c.lineWidth = 1;
+                       /*     c.strokeStyle = '#000';
+                            c.lineWidth = 1;*/
                             c.beginPath();
                             path(globe);
                             c.stroke();

@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:300|Bubbler+One' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
     </head>
@@ -18,16 +19,62 @@
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-    <button id="authorize-button" style="visibility: hidden">Authorize</button><br/>
-
-        <div class="hero-unit">
-          <h1>'Allo, 'Allo!</h1>
-          <p>You now have</p>
-          <ul>
-            <li><span id="visits-count">0</span> visitantes online</li>
-          </ul>
+        <header class="header">
+             <h1 class="header-text">Gaworld</h1>
+        </header>
+        <button id="authorize-button" class="authorize-button" style="visibility: hidden">Authorize</button>
+        <div class="content height100">
+            <div class="half left height100">
+                <div class="data height100">
+                    <h2>Active visitors</h2>
+                    <p id="visits-count">0</p>
+                    <div class="panels height100">
+                        <div class="panel">
+                            <h3>Country</h3>
+                            <ul>
+                                <li> visitantes online</li>
+                                <li> visitantes online</li>
+                                <li> visitantes online</li>
+                            </ul>
+                        </div>
+                        <div class="panel">
+                            <h3>Device</h3>
+                            <ul>
+                                <li> visitantes online</li>
+                                <li> visitantes online</li>
+                                <li> visitantes online</li>
+                            </ul>
+                        </div>
+                        <div class="panel">
+                            <h3>Browser</h3>
+                            <ul>
+                                <li> visitantes online</li>
+                                <li> visitantes online</li>
+                                <li> visitantes online</li>
+                            </ul>
+                        </div>
+                        <div class="panel">
+                            <h3>Medium</h3>
+                            <ul>
+                                <li> visitantes online</li>
+                                <li> visitantes online</li>
+                                <li> visitantes online</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="half right">
+                <div id="world">
+                    <h3 id="country"></h3>
+                </div>
+            </div>
         </div>
+
+
+
+
+
 
 
         <!-- build:js scripts/vendor.js -->

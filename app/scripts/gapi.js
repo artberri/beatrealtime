@@ -176,6 +176,8 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
             };
         },
         realtime: function() {
+            var that = this;
+
             return function(firstProfileId) {
                 console.log('realtime - ');
                 console.log(firstProfileId);
@@ -186,15 +188,106 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
                     params:{
                         ids: 'ga:' + firstProfileId,
                         metrics: 'ga:activeVisitors',
-                        dimensions: 'ga:country,ga:browser'
+                        dimensions: 'ga:country,ga:browser,ga:deviceCategory,ga:medium'
                     }
                 });
 
                 request.execute(function(resp){
-                    console.log(resp.totalResults);
-                    var visitsCount = document.getElementById('visits-count');
-                    visitsCount.innerHTML = resp.totalResults;
+                    if(!resp.error) {
+                        var visitsCount = document.getElementById('visits-count');
+
+
+                        var data = that.formatData(resp.rows);
+                        console.log(resp);
+                        console.log(data);
+                        visitsCount.innerHTML = data.total;
+                    }
+                    else {
+                        console.log('error');
+                    }
                 });
+            };
+        },
+        formatData: function(data) {
+            var newData = {
+                country: {},
+                browser: {},
+                device: {},
+                medium: {}
+            };
+
+            var row, c, b, d, m, value, total = 0, typeIndex, typeObject, currentType;
+
+            for(var i=0; i<data.length; i++) {
+                row = data[i];
+                c = data[i][0];
+                b = data[i][1];
+                d = data[i][2];
+                m = data[i][3];
+                value = parseFloat(data[i][4]);
+
+                total += value;
+
+                for(typeIndex in newData) {
+                    if (newData.hasOwnProperty(typeIndex)) {
+                        typeObject = newData[typeIndex];
+
+                        switch(typeIndex) {
+                        case 'browser':
+                            currentType = b;
+                            break;
+                        case 'medium':
+                            currentType = m;
+                            break;
+                        case 'device':
+                            currentType = d;
+                            break;
+                        case 'country':
+                            currentType = c;
+                            break;
+                        }
+
+                        if(typeof typeObject[currentType] !== 'undefined') {
+                            typeObject[currentType] += value;
+                        }
+                        else {
+                            typeObject[currentType] = value;
+                        }
+                    }
+                }
+            }
+
+            // Pasar a array
+            var newDataArray, elementName;
+            for(typeIndex in newData) {
+                if (newData.hasOwnProperty(typeIndex)) {
+                    newDataArray = [];
+                    typeObject = newData[typeIndex];
+
+                    for(elementName in typeObject) {
+                        if (typeObject.hasOwnProperty(elementName)) {
+                            newDataArray.push({
+                                name: elementName,
+                                value: typeObject[elementName]
+                            });
+                        }
+                    }
+                    newData[typeIndex] = newDataArray;
+                }
+            }
+
+            var sort = function(a, b) {
+                return b.value - a.value;
+            };
+
+            newData.country.sort(sort);
+            newData.browser.sort(sort);
+            newData.device.sort(sort);
+            newData.medium.sort(sort);
+
+            return {
+                total: total,
+                data: newData
             };
         }
     };

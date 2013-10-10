@@ -1,24 +1,133 @@
+/*
+YUI 3.13.0 (build 508226d)
+Copyright 2013 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
+
+/*
+Copyright 2013 Alberto Varela. All rights reserved.
+Licensed under the GNU General Public License.
+http://www.gnu.org/licenses/gpl.txt
+ */
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
 body {
-    background: #040404;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
+    background: #3c4547;
+    color: #bbb;
+    height: 100%;
 }
 
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
-    font-size: 18px;
-    font-weight: 200;
+h1, h2, h3, h4, p, ul, li, a, span {
+    font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.height100 {
+    height: 100%;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #222626;
+    padding: 0 50px;
+}
+
+.header-text {
+    font-size: 20px;
+    color: #fff;
+    padding: 20px 0;
+    text-transform: uppercase;
+}
+
+.authorize-button {
+    position: absolute;
+    top: 0;
+    right: 50px;
+}
+
+.content {
+    height: 100%;
+    padding: 0 50px;
+}
+
+.half {
+    height: 100%;
+}
+
+.left {
+    width: 40%;
+    float: left;
+}
+
+.right {
+    width: 60%;
+    float: right;
+}
+
+#world {
+    padding-top: 100px;
+}
+
+#country {
+    font-size: 48px;
+    text-align: center;
+    line-height: 100px;
+    color: #272c2d;
+    text-transform: uppercase;
+    height: 100px;
+    overflow: hidden;
+}
+
+.data {
+    margin-top: 100px;
+}
+
+.data h2 {
+    font-size: 24px;
+    text-align: center;
+}
+
+#visits-count {
+    font-size: 128px;
+    text-align: center;
+    font-family: 'Bubbler One', Arial, sans-serif;
+    color: #fff;
+}
+
+.panels {
+    height: 100%;
+}
+
+.panel {
+    width: 50%;
+    height: 25%;
+    overflow: hidden;
+    overflow-y: auto;
+    float: left;
+}
+
+.panel h3 {
+    background: #272c2d;
+    margin: 5px 5px 0;
+    padding: 5px 10px;
+}
+
+.panel ul {
+    margin: 0 5px;
+}
+
+.panel ul li {
+    height: 30px;
     line-height: 30px;
-    background-color: #eee;
-    border-radius: 6px;
-    padding: 60px;
-}
-
-.hero-unit h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+    font-size: 13px;
+    border-bottom: 1px solid #5a6063;
 }
 
 .browsehappy {
