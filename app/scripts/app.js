@@ -1,40 +1,54 @@
 /*global define */
-define(['gapi', 'world'], function (gapi, world) {
+define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
     'use strict';
+
+    var $authorizeButton = $('#authorize-button');
 
     var methods = {
         init: function() {
             var that = this;
 
-            return function() {
-                gapi.init(that.logged, that.unlogged);
+            return function(config) {
+                gapi.init(config, that.logged, that.unlogged);
             };
         },
         logged: function() {
+            $authorizeButton.hide();
 
-            console.log('logged');
-
-            var authorizeButton = document.getElementById('authorize-button');
-            authorizeButton.style.visibility = 'hidden';
+            function camelCase(input) {
+                return input.toLowerCase().replace(/-(.)/g, function(match, group1) {
+                    return group1.toUpperCase();
+                });
+            }
 
             // gapi.makeApiCall();
             // When the 'Get Visits' button is clicked, call the makeAapiCall function
-            //
-            console.log('World Init 3');
-            world.init(function() {
-                gapi.realtime(53340307);
+            gapi.realtime(53340307, function(response) {
+                // Update total
+                $('#visits-count').html(response.total);
+                $.each(response.data, function(tableName, table) {
+                    var $table = $('#' + tableName + '-table');
+                    $.each(table, function(rowIndex, row) {
+                        $('<li><p>' +
+                                '<span class="name">' + camelCase(row.name) + '</span> ' +
+                                '<span class="value">' + row.value + '</span> ' +
+                                '<span class="percent">' + row.percent + '%</span>' +
+                            '</p></li>').appendTo($table);
+                    });
+                });
+                world.init();
             });
+
         },
         unlogged: function() {
-            var authorizeButton = document.getElementById('authorize-button');
-
-            // Show the 'Authorize Button' and hide the 'Get Visits' button
-            authorizeButton.style.visibility = '';
+            $authorizeButton.show();
 
             // When the 'Authorize' button is clicked, call the handleAuthClick function
-            authorizeButton.onclick = function() {
+            $authorizeButton.click(function(e) {
+                e.preventDefault();
+
                 gapi.handleAuthClick();
-            };
+            });
         }
     };
 

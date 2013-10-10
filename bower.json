@@ -6,7 +6,8 @@
     "d3": "~3.3.6",
     "topojson": "~1.4.2",
     "requirejs-plugins": "~1.0.2",
-    "queue-async": "~1.0.4"
+    "queue-async": "~1.0.4",
+    "zepto": "~1.0.0"
   },
   "devDependencies": {}
 }

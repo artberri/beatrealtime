@@ -2,8 +2,6 @@
 define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
     'use strict';
 
-    var realtime;
-
     var title = d3.select('#country');
 
     var width = window.innerWidth/2,
@@ -28,13 +26,7 @@ define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
         init: function() {
             var that = this;
 
-            return function(callback) {
-                realtime = callback;
-
-                console.log(',,,e');
-                console.log(realtime);
-                console.log(',,,e');
-
+            return function() {
                 queue()
                     .defer(d3.json, 'data/world-110m.json')
                     .defer(d3.tsv, 'data/world-country-names.tsv')
@@ -59,21 +51,11 @@ define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
                 return a.name.localeCompare(b.name);
             });
 
-            console.log('---- ready');
-            console.log(realtime);
-            realtime();
-          /*  setInterval(function() {
-                realtime();
-            }, 10000);*/
-
             (function transition() {
                 d3.transition()
                     .duration(1250)
                     .each('start', function() {
                         title.text(countries[i = (i + 1) % n].name);
-                        if(typeof gapi !== 'undefined') {
-                           //  app.realtime(53340307);
-                        }
                     })
                     .tween('rotate', function() {
                         var p = d3.geo.centroid(countries[i]),

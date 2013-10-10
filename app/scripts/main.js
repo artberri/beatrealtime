@@ -3,7 +3,8 @@ require.config({
         async: '../bower_components/requirejs-plugins/src/async',
         d3: '../bower_components/d3/d3',
         queue: '../bower_components/queue-async/queue',
-        topojson: '../bower_components/topojson/topojson'
+        topojson: '../bower_components/topojson/topojson',
+        zepto: '../bower_components/zepto/zepto'
     },
     shim: {
         d3: {
@@ -14,14 +15,17 @@ require.config({
         },
         topojson: {
             exports: 'topojson'
+        },
+        zepto: {
+            exports: '$'
         }
     }
 });
 
-require(['app'], function (app) {
+require(['app', 'config'], function (app, config) {
     'use strict';
 
-    app.init();
+    app.init(config.get());
 });
 
 

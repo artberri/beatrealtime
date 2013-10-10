@@ -1,0 +1,15 @@
+/*global define */
+define([], function () {
+    'use strict';
+
+    var apiData = {
+        clientId: 'XXXXX',
+        apiKey: 'XXXXX'
+    };
+
+    return {
+        get: function() {
+            return apiData;
+        }
+    };
+});

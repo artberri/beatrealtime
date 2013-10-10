@@ -11,7 +11,9 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
         init: function() {
             var that = this;
 
-            return function(onAuthorizedCallback, onUnAuthorizedCallback) {
+            return function(config, onAuthorizedCallback, onUnAuthorizedCallback) {
+                clientId = config.clientId;
+                apiKey = config.apiKey;
                 onAuthorized = onAuthorizedCallback;
                 onUnAuthorized = onUnAuthorizedCallback;
                 gapi.client.setApiKey(apiKey);
@@ -22,7 +24,11 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
             var that = this;
 
             return function() {
-                gapi.auth.authorize({'client_id': clientId, scope: scopes, immediate: true}, that.handleAuthResult());
+                gapi.auth.authorize({
+                    'client_id': clientId,
+                    scope: scopes,
+                    immediate: true
+                }, that.handleAuthResult());
             };
         },
         handleAuthResult: function() {
@@ -47,7 +53,12 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
             var that = this;
 
             return function() {
-                gapi.auth.authorize({'client_id': clientId, scope: scopes, immediate: false}, that.handleAuthResult());
+                gapi.auth.authorize({
+                    'client_id': clientId,
+                    scope: scopes,
+                    immediate: false
+                }, that.handleAuthResult());
+
                 return false;
             };
         },
@@ -178,7 +189,7 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
         realtime: function() {
             var that = this;
 
-            return function(firstProfileId) {
+            return function(firstProfileId, callback) {
                 console.log('realtime - ');
                 console.log(firstProfileId);
 
@@ -194,13 +205,11 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
 
                 request.execute(function(resp){
                     if(!resp.error) {
-                        var visitsCount = document.getElementById('visits-count');
-
-
                         var data = that.formatData(resp.rows);
-                        console.log(resp);
+                        if(typeof callback === 'function') {
+                            callback(data);
+                        }
                         console.log(data);
-                        visitsCount.innerHTML = data.total;
                     }
                     else {
                         console.log('error');
@@ -268,7 +277,8 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
                         if (typeObject.hasOwnProperty(elementName)) {
                             newDataArray.push({
                                 name: elementName,
-                                value: typeObject[elementName]
+                                value: typeObject[elementName],
+                                percent: (typeObject[elementName] / total * 100).toFixed(2)
                             });
                         }
                     }
