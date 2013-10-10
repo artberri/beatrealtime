@@ -2,10 +2,11 @@
 define(['async!https://apis.google.com/js/client.js!onload'], function() {
     'use strict';
 
-    var clientId = '715077343701';
-    var apiKey = 'AIzaSyAUs37-gXe06-up53wBa5-ceJIvZloFJH0';
-    var scopes = 'https://www.googleapis.com/auth/analytics.readonly';
-    var onAuthorized, onUnAuthorized;
+    var clientId,
+        apiKey,
+        scopes = 'https://www.googleapis.com/auth/analytics.readonly',
+        onAuthorized,
+        onUnAuthorized;
 
     var methods = {
         init: function() {
