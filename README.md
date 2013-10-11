@@ -1,4 +1,4 @@
-beatrealtime
+BetaRealtime
 ============
 
-Betarealtime app source code 
+BetaRealtime app source code

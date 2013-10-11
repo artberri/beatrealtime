@@ -3,14 +3,15 @@
 @import  "yuireset";
 
 @import "compass/css3/border-radius";
+@import "compass/css3/transition";
 
 /* Google Button */
 
 .hideable {
     opacity: 1;
-    transition: opacity .25s ease-in-out;
-    -moz-transition: opacity .25s ease-in-out;
-    -webkit-transition: opacity .25s ease-in-out;
+    @include transition-property(opacity);
+    @include transition-duration(.25s);
+    @include transition-timing-function(ease-in-out);
 
     &.hide {
         opacity: 0;
@@ -20,7 +21,7 @@
 #customBtn {
     margin-top: 50px;
     display: inline-block;
-    background: #cc3732;
+    background: $red;
     color: white;
     width: 300px;
     @include border-radius(5px);
@@ -94,9 +95,9 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
     @include border-radius(5px);
     width: 400px;
     padding: 5px;
-    transition: left .25s ease-in-out;
-    -moz-transition: left .25s ease-in-out;
-    -webkit-transition: left .25s ease-in-out;
+    @include transition-property(left);
+    @include transition-duration(.25s);
+    @include transition-timing-function(ease-in-out);
 
     &.toleft {
         left: -50%;
@@ -140,9 +141,9 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
     font-family: 'Bubbler One', Arial, sans-serif;
     position: absolute;
     left: -200px;
-    transition: left .25s ease-in-out;
-    -moz-transition: left .25s ease-in-out;
-    -webkit-transition: left .25s ease-in-out;
+    @include transition-property(left);
+    @include transition-duration(.25s);
+    @include transition-timing-function(ease-in-out);
 
     &.show {
         left: 50px;
@@ -162,9 +163,9 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
     left: 0;
     width: 100%;
     z-index: 200;
-    transition: top 1s ease-in-out;
-    -moz-transition: top 1s ease-in-out;
-    -webkit-transition: top 1s ease-in-out;
+    @include transition-property(top);
+    @include transition-duration(1s);
+    @include transition-timing-function(ease-in-out);
 
     &.down {
         top: 100%;
@@ -264,6 +265,17 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
             line-height: 30px;
             font-size: 13px;
             border-bottom: 1px solid #5a6063;
+            background: $grey;
+            @include transition-property(background-color);
+            @include transition-duration(.8s);
+            @include transition-timing-function(linear);
+
+            &.change {
+                @include transition-property(background-color);
+                @include transition-duration(.3s);
+                @include transition-timing-function(linear);
+                background-color: $red;
+            }
 
             p {
                 margin: 0 10px;

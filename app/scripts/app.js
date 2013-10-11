@@ -2,6 +2,16 @@
 define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
     'use strict';
 
+    var previousData = {
+        total: 0,
+        data: {
+            country: [],
+            browser: [],
+            device: [],
+            medium: []
+        }
+    };
+
     var $authorizeButtonContainer = $('#gSignInWrapper'),
         $authorizeButton = $('#authorize-button'),
         $accountSelector = $('#account-selector'),
@@ -105,29 +115,82 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
             }
 
             // Init world
-            // world.init();
+            world.init();
 
-            // Get data
-            gapi.realtime(profileId, function(response) {
-                $home.addClass('down');
-                setTimeout(function() {
-                    $headerText.addClass('show');
-                }, 500);
+            (function exec() {
+                // Get data
+                gapi.realtime(profileId, function(response) {
 
-                // Update total
-                $('#visits-count').html(response.total);
-                $.each(response.data, function(tableName, table) {
-                    var $table = $('#' + tableName + '-table');
-                    $.each(table, function(rowIndex, row) {
-                        $('<li><p>' +
-                                '<span class="name">' + camelCase(row.name) + '</span> ' +
-                                '<span class="value">' + row.value + '</span> ' +
-                                '<span class="percent">' + row.percent + '%</span>' +
-                            '</p></li>').appendTo($table);
+                    $home.addClass('down');
+                    setTimeout(function() {
+                        $headerText.addClass('show');
+                    }, 500);
+
+                    // Update total
+                    $('#visits-count').html(response.total);
+                    // Update tables
+                    $.each(response.data, function(tableName, table) {
+                        var $table = $('#' + tableName + '-table');
+                        $.each(table, function(rowIndex, row) {
+                            var previousRow = previousData.data[tableName][rowIndex];
+                            if(previousRow !== row) {
+                                var selector = rowIndex === 0 ? '*:first-child' : '*:nth-child(' + (rowIndex+1) + ')',
+                                    $li = $table.children(selector),
+                                    template = '<p>' +
+                                            '<span class="name">' + camelCase(row.name) + '</span> ' +
+                                            '<span class="value">' + row.value + '</span> ' +
+                                            '<span class="percent">' + row.percent + '%</span>' +
+                                        '</p>';
+
+                                if($li.length > 0) {
+                                    $li.html(template);
+                                }
+                                else {
+                                    $li = $('<li>' + template + '</li>');
+                                    $li.appendTo($table);
+                                }
+
+                                // Cambia el dato
+                                if((!previousRow) || (previousRow.name !== row.name) || (previousRow.value !== row.value)) {
+                                    $li.addClass('change');
+                                }
+                            }
+                        });
                     });
-                });
 
-            });
+                    setTimeout(function() {
+                        $('.panels li').removeClass('change');
+                    }, 500);
+
+                    // Serch for new visits by country
+                    var newCountries = [];
+                    $.each(response.data.country, function(index, country) {
+                        var countryName = country.name,
+                            previousCountry = $.grep(previousData.data.country, function(e){
+                                return e.name === countryName;
+                            });
+
+                        if(previousCountry.length === 0) {
+                            newCountries.push(country.name);
+                        }
+                        else if(previousCountry.length === 1 && country.value > previousCountry[0].value) {
+                            newCountries.push(country.name);
+                        }
+                    });
+
+                    // Move world
+                    if(newCountries.length > 0) {
+                        world.moveTo(newCountries);
+                    }
+
+                    previousData = response;
+
+                    // Infinite
+                    setTimeout(function() {
+                        exec();
+                    }, 10000);
+                });
+            })();
         }
     };
 

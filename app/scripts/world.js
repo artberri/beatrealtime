@@ -1,14 +1,17 @@
 /*global define */
-define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
+define(['d3', 'queue', 'topojson', 'zepto'], function (d3, queue, topojson, $) {
     'use strict';
+
+    var globe = {type: 'Sphere'}, land, countries, borders;
 
     var title = d3.select('#country');
 
-    var width = window.innerWidth/2,
-        height = width/1.92;
+    var $world = $('#world'),
+        width = $world.width(),
+        height = $world.width()/1.92;
 
     var projection = d3.geo.orthographic()
-        .scale(190)
+        .scale(100)
         .clipAngle(90);
 
     var canvas = d3.select('#world').append('canvas')
@@ -34,70 +37,90 @@ define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
             };
         },
         ready: function(error, world, names) {
-            var globe = {type: 'Sphere'},
-                land = topojson.feature(world, world.objects.land),
-                countries = topojson.feature(world, world.objects.countries).features,
-                borders = topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }),
-                i = -1,
-                n = countries.length;
+            land = topojson.feature(world, world.objects.land);
+            countries = topojson.feature(world, world.objects.countries).features;
+            borders = topojson.mesh(world, world.objects.countries, function(a, b) {
+                return a !== b;
+            });
 
             countries = countries.filter(function(d) {
                 return names.some(function(n) {
-                    if (d.id === n.id) { // d.id == n.id
+                    if (parseInt(d.id, 10) === parseInt(n.id, 10)) { // d.id == n.id
                         d.name = n.name;
+
                         return d.name;
                     }
                 });
             }).sort(function(a, b) {
                 return a.name.localeCompare(b.name);
             });
+        },
+        moveTo: function() {
+            return function(names) {
+                var move = function(names) {
+                    var name = names[0];
 
-            (function transition() {
-                d3.transition()
-                    .duration(1250)
-                    .each('start', function() {
-                        title.text(countries[i = (i + 1) % n].name);
-                    })
-                    .tween('rotate', function() {
-                        var p = d3.geo.centroid(countries[i]),
-                            r = d3.interpolate(projection.rotate(), [-p[0], -p[1]]);
-                        return function(t) {
-                            projection.rotate(r(t));
-                            c.clearRect(0, 0, width, height);
-                            c.fillStyle = '#272c2d';
-                            c.fill();
+                    var theCountry = $.grep(countries, function(e){
+                        return e.name.toLowerCase().trim() === name.toLowerCase().trim();
+                    });
 
-                            c.fillStyle = '#5a6063';
-                            c.beginPath();
-                            path(land);
-                            c.fill();
+                    if (theCountry.length === 1) {
+                        theCountry = theCountry[0];
+                        d3.transition()
+                                .duration(1250)
+                                .each('start', function() {
+                                    title.text(name);
+                                })
+                                .tween('rotate', function() {
+                                    var p = d3.geo.centroid(theCountry),
+                                        r = d3.interpolate(projection.rotate(), [-p[0], -p[1]]);
+                                    return function(t) {
+                                        projection.rotate(r(t));
+                                        c.clearRect(0, 0, width, height);
+                                        c.fillStyle = '#272c2d';
+                                        c.fill();
 
-                            c.fillStyle = '#57e9be';
-                            c.beginPath();
-                            path(countries[i]);
-                            c.fill();
+                                        c.fillStyle = '#5a6063';
+                                        c.beginPath();
+                                        path(land);
+                                        c.fill();
 
-                            c.strokeStyle = '#222';
-                            c.lineWidth = 0.5;
-                            c.beginPath();
-                            path(borders);
-                            c.stroke();
+                                        c.fillStyle = '#57e9be';
+                                        c.beginPath();
+                                        path(theCountry);
+                                        c.fill();
 
-                       /*     c.strokeStyle = '#000';
-                            c.lineWidth = 1;*/
-                            c.beginPath();
-                            path(globe);
-                            c.stroke();
+                                        c.strokeStyle = '#222';
+                                        c.lineWidth = 0.5;
+                                        c.beginPath();
+                                        path(borders);
+                                        c.stroke();
 
-                        };
-                    })
-                  .transition()
-                      .each('end', transition);
-            })();
+                                        // c.strokeStyle = '#000';
+                                        // c.lineWidth = 1;
+                                        c.beginPath();
+                                        path(globe);
+                                        c.stroke();
+
+                                    };
+                                })
+                                .transition()
+                                .each('end', function() {
+                                    names.shift();
+                                    if(names.length > 0) {
+                                        move(names);
+                                    }
+                                });
+                    }
+                };
+
+                move(names);
+            };
         }
     };
 
     return {
-        init: methods.init()
+        init: methods.init(),
+        moveTo: methods.moveTo()
     };
 });
