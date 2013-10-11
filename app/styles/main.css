@@ -407,7 +407,6 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   float: left;
   margin-bottom: 20px;
   overflow: hidden;
-  overflow-y: auto;
 }
 /* line 254, ../sass/main.scss */
 .panel h3 {
@@ -421,6 +420,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
 }
 /* line 263, ../sass/main.scss */
 .panel ul li {
+  overflow: hidden;
   height: 30px;
   line-height: 30px;
   font-size: 13px;
@@ -439,7 +439,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   -o-transition-timing-function: linear;
   transition-timing-function: linear;
 }
-/* line 273, ../sass/main.scss */
+/* line 274, ../sass/main.scss */
 .panel ul li.change {
   -webkit-transition-property: background-color;
   -moz-transition-property: background-color;
@@ -455,31 +455,32 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   transition-timing-function: linear;
   background-color: #cc3732;
 }
-/* line 280, ../sass/main.scss */
+/* line 281, ../sass/main.scss */
 .panel ul li p {
   margin: 0 10px;
   display: block;
 }
-/* line 287, ../sass/main.scss */
+/* line 288, ../sass/main.scss */
 .panel .name, .panel .value, .panel .percent {
   display: inline-block;
+  overflow: hidden;
 }
-/* line 291, ../sass/main.scss */
+/* line 293, ../sass/main.scss */
 .panel .name {
   width: 45%;
 }
-/* line 295, ../sass/main.scss */
+/* line 297, ../sass/main.scss */
 .panel .value {
   width: 25%;
   text-align: right;
 }
-/* line 300, ../sass/main.scss */
+/* line 302, ../sass/main.scss */
 .panel .percent {
   width: 25%;
   text-align: right;
 }
 
-/* line 306, ../sass/main.scss */
+/* line 308, ../sass/main.scss */
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;

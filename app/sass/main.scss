@@ -249,7 +249,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
     float: left;
     margin-bottom: 20px;
     overflow: hidden;
-    overflow-y: auto;
+    // overflow-y: auto;
 
     h3 {
         background: #272c2d;
@@ -261,6 +261,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
         margin: 0 5px;
 
         li {
+            overflow: hidden;
             height: 30px;
             line-height: 30px;
             font-size: 13px;
@@ -286,6 +287,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
 
     .name, .value, .percent{
         display: inline-block;
+        overflow: hidden;
     }
 
     .name{
