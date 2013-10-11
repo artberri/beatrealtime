@@ -7,17 +7,19 @@ define(['d3', 'queue', 'topojson', 'zepto'], function (d3, queue, topojson, $) {
     var title = d3.select('#country');
 
     var $world = $('#world'),
-        width = $world.width(),
-        height = $world.width()/1.92;
+        diameter = $world.width(),
+        radius = diameter/2,
+        scale = radius*0.6;
 
     var projection = d3.geo.orthographic()
-        .scale(100)
+        .scale(scale)
+        .translate([radius, radius-60])
         .clipAngle(90);
 
     var canvas = d3.select('#world').append('canvas')
         .attr('class', 'world-canvas')
-        .attr('width', width)
-        .attr('height', height);
+        .attr('width', diameter)
+        .attr('height', diameter);
 
     var c = canvas.node().getContext('2d');
 
@@ -76,7 +78,7 @@ define(['d3', 'queue', 'topojson', 'zepto'], function (d3, queue, topojson, $) {
                                         r = d3.interpolate(projection.rotate(), [-p[0], -p[1]]);
                                     return function(t) {
                                         projection.rotate(r(t));
-                                        c.clearRect(0, 0, width, height);
+                                        c.clearRect(0, 0, diameter, diameter);
                                         c.fillStyle = '#272c2d';
                                         c.fill();
 
