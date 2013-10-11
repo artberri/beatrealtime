@@ -4,244 +4,420 @@ Copyright 2013 Yahoo! Inc. All rights reserved.
 Licensed under the BSD License.
 http://yuilibrary.com/license/
 */
-html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
+/* line 7, ../sass/_yuireset.scss */
+html {
+  color: #000;
+  background: #FFF;
+}
+
+/* line 7, ../sass/_yuireset.scss */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 7, ../sass/_yuireset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 7, ../sass/_yuireset.scss */
+fieldset, img {
+  border: 0;
+}
+
+/* line 7, ../sass/_yuireset.scss */
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* line 7, ../sass/_yuireset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 7, ../sass/_yuireset.scss */
+caption, th {
+  text-align: left;
+}
+
+/* line 7, ../sass/_yuireset.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+/* line 7, ../sass/_yuireset.scss */
+q:before, q:after {
+  content: '';
+}
+
+/* line 7, ../sass/_yuireset.scss */
+abbr, acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+/* line 7, ../sass/_yuireset.scss */
+sup {
+  vertical-align: text-top;
+}
+
+/* line 7, ../sass/_yuireset.scss */
+sub {
+  vertical-align: text-bottom;
+}
+
+/* line 7, ../sass/_yuireset.scss */
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* line 7, ../sass/_yuireset.scss */
+input, textarea, select {
+  *font-size: 100%;
+}
+
+/* line 7, ../sass/_yuireset.scss */
+legend {
+  color: #000;
+}
+
+/* line 7, ../sass/_yuireset.scss */
+#yui3-css-stamp.cssreset {
+  display: none;
+}
 
 /* Google Button */
-#customBtn {
-    margin-top: 50px;
-    display: inline-block;
-    background: #cc3732;
-    color: white;
-    width: 300px;
-    border-radius: 5px;
-    opacity: 1;
-    transition: opacity .25s ease-in-out;
-    -moz-transition: opacity .25s ease-in-out;
-    -webkit-transition: opacity .25s ease-in-out;
+/* line 9, ../sass/main.scss */
+.hideable {
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
 }
-#customBtn.hide {
-    opacity: 0;
+/* line 15, ../sass/main.scss */
+.hideable.hide {
+  opacity: 0;
 }
 
-#customBtn a {
-    text-decoration: none;
-    color: #fff;
-    display: block;
+/* line 20, ../sass/main.scss */
+#customBtn {
+  margin-top: 50px;
+  display: inline-block;
+  background: #cc3732;
+  color: white;
+  width: 300px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
 }
+/* line 28, ../sass/main.scss */
+#customBtn a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+/* line 34, ../sass/main.scss */
 #customBtn:hover {
   background: #e74b37;
   cursor: hand;
 }
-span.label {
+/* line 39, ../sass/main.scss */
+#customBtn span.label {
   font-weight: bold;
 }
-span.icon {
-  background: url('../images/g.png') transparent 10px 50% no-repeat;
+/* line 42, ../sass/main.scss */
+#customBtn span.icon {
+  background: url("../images/g.png") transparent 10px 50% no-repeat;
   display: inline-block;
   vertical-align: middle;
   width: 40px;
   height: 40px;
 }
-span.buttonText {
+/* line 49, ../sass/main.scss */
+#customBtn span.buttonText {
   display: inline-block;
   vertical-align: middle;
   padding-left: 40px;
   padding-right: 40px;
 }
 
-
-/*
-Copyright 2013 Alberto Varela. All rights reserved.
-Licensed under the GNU General Public License.
-http://www.gnu.org/licenses/gpl.txt
- */
+/* line 57, ../sass/main.scss */
 html {
-    height: 100%;
-    overflow: hidden;
+  height: 100%;
+  overflow: hidden;
 }
 
+/* line 62, ../sass/main.scss */
 body {
-    background: #3c4547;
-    color: #bbb;
-    height: 100%;
+  background: #3c4547;
+  color: #bbb;
+  height: 100%;
 }
 
+/* line 68, ../sass/main.scss */
 h1, h2, h3, h4, p, ul, li, input, textarea, div {
-    font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* line 72, ../sass/main.scss */
 .blue {
-    color: #57e9be;
+  color: #57e9be;
 }
 
+/* line 76, ../sass/main.scss */
 .height100 {
-    height: 100%;
+  height: 100%;
 }
 
-.header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #222626;
-    padding: 0 50px;
-    height: 60px;
+/* line 80, ../sass/main.scss */
+.small {
+  font-size: 11px;
 }
 
-.header-text {
-    font-size: 20px;
-    color: #fff;
-    height: 60px;
-    line-height: 60px;
-    text-transform: uppercase;
-    font-family: 'Bubbler One', Arial, sans-serif;
-    position: absolute;
-    left: -200px;
-}
-
-.authorize-button {
-    position: absolute;
-    top: 0;
-    right: 50px;
-    display: none;
-}
-
-#home {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 200;
-}
-
-#home-inner {
-    background: #222626;
-    height: 100%;
-    margin-top: 60px;
-    text-align: center;
-}
-
-#home-inner h2 {
-    font-size: 128px;
-    text-transform: uppercase;
-    font-family: 'Bubbler One', Arial, sans-serif;
-    color: white;
-}
-
-#subtitle {
-    font-size: 28px;
-}
-
+/* line 84, ../sass/main.scss */
 #selectors {
-    margin-top: 50px;
+  margin-top: 50px;
+  position: relative;
 }
 
+/* line 89, ../sass/main.scss */
+.selector-container {
+  position: absolute;
+  left: 50%;
+  margin-left: -200px;
+  background: #3c4547;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  width: 400px;
+  padding: 5px;
+  transition: left .25s ease-in-out;
+  -moz-transition: left .25s ease-in-out;
+  -webkit-transition: left .25s ease-in-out;
+}
+/* line 101, ../sass/main.scss */
+.selector-container.toleft {
+  left: -50%;
+}
+/* line 105, ../sass/main.scss */
+.selector-container.toright {
+  left: 150%;
+}
+/* line 109, ../sass/main.scss */
+.selector-container select {
+  font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  padding: 20px;
+  background: #3c4547;
+  border: 0;
+  color: white;
+  display: block;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* line 124, ../sass/main.scss */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #222626;
+  padding: 0 50px;
+  height: 60px;
+}
+
+/* line 134, ../sass/main.scss */
+.header-text {
+  font-size: 20px;
+  color: #fff;
+  height: 60px;
+  line-height: 60px;
+  text-transform: uppercase;
+  font-family: 'Bubbler One', Arial, sans-serif;
+  position: absolute;
+  left: -200px;
+  transition: left .25s ease-in-out;
+  -moz-transition: left .25s ease-in-out;
+  -webkit-transition: left .25s ease-in-out;
+}
+/* line 147, ../sass/main.scss */
+.header-text.show {
+  left: 50px;
+}
+
+/* line 152, ../sass/main.scss */
+.authorize-button {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  display: none;
+}
+
+/* line 159, ../sass/main.scss */
+#home {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+  transition: top 1s ease-in-out;
+  -moz-transition: top 1s ease-in-out;
+  -webkit-transition: top 1s ease-in-out;
+}
+/* line 169, ../sass/main.scss */
+#home.down {
+  top: 100%;
+}
+
+/* line 174, ../sass/main.scss */
+#home-inner {
+  background: #222626;
+  height: 100%;
+  margin-top: 60px;
+  text-align: center;
+}
+/* line 180, ../sass/main.scss */
+#home-inner h2 {
+  font-size: 128px;
+  text-transform: uppercase;
+  font-family: 'Bubbler One', Arial, sans-serif;
+  color: white;
+}
+
+/* line 188, ../sass/main.scss */
+#subtitle {
+  font-size: 28px;
+}
+
+/* line 192, ../sass/main.scss */
 .content {
-    height: 100%;
-    padding: 0 50px;
+  height: 100%;
+  padding: 0 50px;
 }
 
+/* line 197, ../sass/main.scss */
 .half {
-    height: 100%;
+  height: 100%;
 }
 
+/* line 201, ../sass/main.scss */
 .left {
-    width: 40%;
-    float: left;
+  width: 50%;
+  float: left;
 }
 
+/* line 206, ../sass/main.scss */
 .right {
-    width: 60%;
-    float: right;
+  width: 50%;
+  float: right;
 }
 
+/* line 211, ../sass/main.scss */
 #world {
-    padding-top: 100px;
+  padding-top: 100px;
 }
 
+/* line 215, ../sass/main.scss */
 #country {
-    font-size: 48px;
-    text-align: center;
-    line-height: 100px;
-    color: #272c2d;
-    text-transform: uppercase;
-    height: 100px;
-    overflow: hidden;
+  font-size: 48px;
+  text-align: center;
+  line-height: 100px;
+  color: #272c2d;
+  text-transform: uppercase;
+  height: 100px;
+  overflow: hidden;
 }
 
+/* line 225, ../sass/main.scss */
 .data {
-    margin-top: 100px;
+  margin-top: 100px;
 }
-
+/* line 228, ../sass/main.scss */
 .data h2 {
-    font-size: 24px;
-    text-align: center;
+  font-size: 24px;
+  text-align: center;
 }
 
+/* line 234, ../sass/main.scss */
 #visits-count {
-    font-size: 128px;
-    text-align: center;
-    font-family: 'Bubbler One', Arial, sans-serif;
-    color: #fff;
+  font-size: 128px;
+  text-align: center;
+  font-family: 'Bubbler One', Arial, sans-serif;
+  color: #fff;
 }
 
+/* line 241, ../sass/main.scss */
 .panels {
-    height: 100%;
+  height: 100%;
 }
 
+/* line 245, ../sass/main.scss */
 .panel {
-    width: 50%;
-    height: 25%;
-    float: left;
-    margin-bottom: 20px;
-    overflow: hidden;
-    overflow-y: auto;
+  width: 50%;
+  height: 25%;
+  float: left;
+  margin-bottom: 20px;
+  overflow: hidden;
+  overflow-y: auto;
 }
-
+/* line 253, ../sass/main.scss */
 .panel h3 {
-    background: #272c2d;
-    margin: 0 5px;
-    padding: 5px 10px;
+  background: #272c2d;
+  margin: 0 5px;
+  padding: 5px 10px;
 }
-
+/* line 259, ../sass/main.scss */
 .panel ul {
-    margin: 0 5px;
+  margin: 0 5px;
 }
-
+/* line 262, ../sass/main.scss */
 .panel ul li {
-    height: 30px;
-    line-height: 30px;
-    font-size: 13px;
-    border-bottom: 1px solid #5a6063;
+  height: 30px;
+  line-height: 30px;
+  font-size: 13px;
+  border-bottom: 1px solid #5a6063;
 }
-
+/* line 268, ../sass/main.scss */
 .panel ul li p {
-    margin: 0 10px;
-    display: block;
+  margin: 0 10px;
+  display: block;
+}
+/* line 275, ../sass/main.scss */
+.panel .name, .panel .value, .panel .percent {
+  display: inline-block;
+}
+/* line 279, ../sass/main.scss */
+.panel .name {
+  width: 45%;
+}
+/* line 283, ../sass/main.scss */
+.panel .value {
+  width: 25%;
+  text-align: right;
+}
+/* line 288, ../sass/main.scss */
+.panel .percent {
+  width: 25%;
+  text-align: right;
 }
 
-.panel .name, .panel .value, .panel .percent{
-    display: inline-block;
-}
-
-.panel .name{
-    width: 45%;
-    text-transform: capitalize;
-}
-
-.panel .value{
-    width: 25%;
-    text-align: right;
-}
-
-.panel .percent{
-    width: 25%;
-    text-align: right;
-}
-
+/* line 294, ../sass/main.scss */
 .browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
 }

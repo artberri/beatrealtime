@@ -1,4 +1,4 @@
-var scrollbar = (function() {
+/*var scrollbar = (function() {
     'use strict';
 
 
@@ -15,7 +15,7 @@ var ssb = {
     aConts  : [],
     mouseY : 0,
     N  : 0,
-    asd : 0, /*active scrollbar element*/
+    asd : 0, // active scrollbar element
     sc : 0,
     sp : 0,
     to : 0,
@@ -160,7 +160,6 @@ var ssb = {
         }
     },
 
-    /* event binded functions : */
     // scroll on mouse down
     mousedown : function (o, s) {
         if (ssb.sc == 0) {
@@ -196,3 +195,4 @@ var ssb = {
 window.onload = function() {
     ssb.scrollbar('main_content'); // scrollbar initialization
 }
+*/

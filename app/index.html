@@ -27,24 +27,25 @@
             <div id="home-inner">
                 <h2><span class="blue">Beat</span>Realtime</h2>
                 <p id="subtitle">Have a look to your visitors right now!</p>
-                <div id="gSignInWrapper">
+                <div id="gSignInWrapper" class="hideable">
                     <div id="customBtn" class="customGPlusSignIn" >
                         <a id="authorize-button" href="#"><span class="icon"></span>
                         <span class="buttonText">Sign in with Google</span></a>
                     </div>
+                    <div><p class="small">You must have a Google Analytics account to see the fun</p></div>
                 </div>
-                <div id="selectors">
+                <div id="selectors" class="hideable hide">
                     <div class="selector-container">
                         <select id="account-selector">
                             <option value="0">Choose account</option>
                         </select>
                     </div>
-                    <div class="selector-container">
+                    <div class="selector-container toright">
                         <select id="properties-selector">
                             <option value="0">Choose property</option>
                         </select>
                     </div>
-                    <div class="selector-container">
+                    <div class="selector-container toright">
                         <select id="profile-selector">
                             <option value="0">Choose profile</option>
                         </select>

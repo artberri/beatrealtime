@@ -64,7 +64,6 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
             };
         },
         loadAnalyticsClient: function() {
-            console.log('loadAnalyticsClient');
             // Load the Analytics client and set handleAuthorized as the callback function
             gapi.client.load('analytics', 'v3', this.handleAuthorized());
         },
@@ -150,9 +149,6 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
             var that = this;
 
             return function(firstProfileId, callback) {
-                console.log('realtime - ');
-                console.log(firstProfileId);
-
                 var request = gapi.client.request({
                     method:'GET',
                     path:'/analytics/v3/data/realtime',

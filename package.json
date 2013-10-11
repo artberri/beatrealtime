@@ -1,7 +1,9 @@
 {
   "name": "gaworld",
   "version": "0.0.1",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-compass": "~0.3.9"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.1",

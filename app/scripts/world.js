@@ -43,8 +43,9 @@ define(['d3', 'queue', 'topojson'], function (d3, queue, topojson) {
 
             countries = countries.filter(function(d) {
                 return names.some(function(n) {
-                    if (d.id == n.id) {
-                        return d.name = n.name;
+                    if (d.id === n.id) { // d.id == n.id
+                        d.name = n.name;
+                        return d.name;
                     }
                 });
             }).sort(function(a, b) {

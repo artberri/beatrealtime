@@ -2,83 +2,99 @@
 define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
     'use strict';
 
-    var $authorizeButtonContainer = $('#customBtn'),
+    var $authorizeButtonContainer = $('#gSignInWrapper'),
         $authorizeButton = $('#authorize-button'),
         $accountSelector = $('#account-selector'),
         $propertiesSelector = $('#properties-selector'),
-        $profileSelector = $('#profile-selector');
+        $profileSelector = $('#profile-selector'),
+        $selectors = $('#selectors'),
+        $home = $('#home'),
+        $headerText = $('.header-text');
 
     var methods = {
         init: function() {
             var that = this;
 
             return function(config) {
-                gapi.init(config, that.logged, that.unlogged);
+                gapi.init(config, that.logged(), that.unlogged());
             };
         },
         logged: function() {
             var that = this;
 
-            // Hide login button
-            $authorizeButtonContainer.addClass('hide');
-            // Query accounts
-            gapi.queryAccounts(function(accounts) {
-                console.log(accounts);
-                // Populate selector
-                $.each(accounts, function(index, account) {
-                    $('<option value="' + account.id + '"></option>');
-                }).appendTo($accountSelector);
-                // Onchange query profile and show selector
-                $accountSelector.change(function() {
-                    var $this = $(this),
-                        accountId = parseFloat($this.val());
-                    // If selects...
-                    if(accountId > 0) {
-                        // ...query web properties
-                        gapi.queryWebproperties(accountId, function(properties) {
-                            console.log(properties);
-                            // Populate selector
-                            $.each(properties, function(index, property) {
-                                $('<option value="' + property.id + '"></option>');
-                            }).appendTo($propertiesSelector);
-                            // Onchange query profile and show selector
-                            $propertiesSelector.change(function() {
-                                var $this = $(this),
-                                    propertyId = parseFloat($this.val());
-                                // If selects...
-                                if(propertyId > 0) {
-                                    // ...query web profiles
-                                    gapi.queryWebproperties(accountId, propertyId, function(profiles) {
-                                        console.log(profiles);
-                                        // Populate selector
-                                        $.each(profiles, function(index, profile) {
-                                            $('<option value="' + profile.id + '"></option>');
-                                        }).appendTo($profileSelector);
-                                        // Onchange query profile and show selector
-                                        $profileSelector.change(function() {
-                                            var $this = $(this),
-                                                profileId = parseFloat($this.val());
-                                            // If selects...
-                                            if(profileId > 0) {
-                                                // Magic starts
-                                                that.realtime(profileId);
-                                            }
-                                        }).addClass('show');
-                                    });
-                                }
-                            }).addClass('show');
-                        });
-                    }
-                }).addClass('show');
-            });
+            return function() {
+                // Hide login button
+                $authorizeButtonContainer.addClass('hide');
+                // Query accounts
+                gapi.queryAccounts(function(accounts) {
+                    $selectors.removeClass('hide');
+                    // Populate selector
+                    $.each(accounts, function(index, account) {
+                        $('<option value="' + account.id + '">' + account.name + '</option>').appendTo($accountSelector);
+                    });
+                    // Onchange query profile and show selector
+                    $accountSelector.change(function() {
+                        var $this = $(this),
+                            $parent = $this.parent(),
+                            accountId = parseFloat($this.val());
+
+                        // If selects...
+                        if(accountId > 0) {
+                            // ...query web properties
+                            $parent.addClass('toleft');
+                            gapi.queryWebproperties(accountId, function(properties) {
+                                $propertiesSelector.parent().removeClass('toright');
+                                // Populate selector
+                                $.each(properties, function(index, property) {
+                                    $('<option value="' + property.id + '">' + property.name + '</option>').appendTo($propertiesSelector);
+                                });
+                                // Onchange query profile and show selector
+                                $propertiesSelector.change(function() {
+                                    var $this = $(this),
+                                        $parent = $this.parent(),
+                                        propertyId = $this.val();
+
+                                    // If selects...
+                                    if(propertyId) {
+                                        $parent.addClass('toleft');
+                                        // ...query web profiles
+                                        gapi.queryProfiles(accountId, propertyId, function(profiles) {
+                                            $profileSelector.parent().removeClass('toright');
+                                            // Populate selector
+                                            $.each(profiles, function(index, profile) {
+                                                $('<option value="' + profile.id + '">' + profile.name + '</option>').appendTo($profileSelector);
+                                            });
+                                            // Onchange query profile and show selector
+                                            $profileSelector.change(function() {
+                                                var $this = $(this),
+                                                    $parent = $this.parent(),
+                                                    profileId = parseFloat($this.val());
+                                                // If selects...
+                                                if(profileId > 0) {
+                                                    // Magic starts
+                                                    $parent.addClass('toleft');
+                                                    that.realtime(profileId);
+                                                }
+                                            }).addClass('show');
+                                        });
+                                    }
+                                }).addClass('show');
+                            });
+                        }
+                    }).addClass('show');
+                });
+            };
         },
         unlogged: function() {
-            // When the 'Authorize' button is clicked, call the handleAuthClick function
-            $authorizeButton.click(function(e) {
-                e.preventDefault();
 
-                gapi.handleAuthClick();
-            });
+            return function() {
+                // When the 'Authorize' button is clicked, call the handleAuthClick function
+                $authorizeButton.click(function(e) {
+                    e.preventDefault();
+
+                    gapi.handleAuthClick();
+                });
+            };
         },
         realtime: function(profileId) {
 
@@ -89,10 +105,15 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
             }
 
             // Init world
-            world.init();
+            // world.init();
 
             // Get data
             gapi.realtime(profileId, function(response) {
+                $home.addClass('down');
+                setTimeout(function() {
+                    $headerText.addClass('show');
+                }, 500);
+
                 // Update total
                 $('#visits-count').html(response.total);
                 $.each(response.data, function(tableName, table) {

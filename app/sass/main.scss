@@ -1,0 +1,299 @@
+@import "settings";
+
+@import  "yuireset";
+
+@import "compass/css3/border-radius";
+
+/* Google Button */
+
+.hideable {
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+
+    &.hide {
+        opacity: 0;
+    }
+}
+
+#customBtn {
+    margin-top: 50px;
+    display: inline-block;
+    background: #cc3732;
+    color: white;
+    width: 300px;
+    @include border-radius(5px);
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        display: block;
+    }
+
+    &:hover {
+      background: #e74b37;
+      cursor: hand;
+    }
+
+    span.label {
+      font-weight: bold;
+    }
+    span.icon {
+      background: url('../images/g.png') transparent 10px 50% no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+      width: 40px;
+      height: 40px;
+    }
+    span.buttonText {
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: $grey;
+    color: #bbb;
+    height: 100%;
+}
+
+h1, h2, h3, h4, p, ul, li, input, textarea, div {
+    font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.blue {
+    color: #57e9be;
+}
+
+.height100 {
+    height: 100%;
+}
+
+.small {
+    font-size: 11px;
+}
+
+#selectors {
+    margin-top: 50px;
+    position: relative;
+}
+
+.selector-container {
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
+    background: $grey;
+    @include border-radius(5px);
+    width: 400px;
+    padding: 5px;
+    transition: left .25s ease-in-out;
+    -moz-transition: left .25s ease-in-out;
+    -webkit-transition: left .25s ease-in-out;
+
+    &.toleft {
+        left: -50%;
+    }
+
+    &.toright {
+        left: 150%;
+    }
+
+    select {
+        font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 24px;
+        padding: 20px;
+        background: $grey;
+        border: 0;
+        color: white;
+        display: block;
+        width: 100%;
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        appearance:none;
+    }
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #222626;
+    padding: 0 50px;
+    height: 60px;
+}
+
+.header-text {
+    font-size: 20px;
+    color: #fff;
+    height: 60px;
+    line-height: 60px;
+    text-transform: uppercase;
+    font-family: 'Bubbler One', Arial, sans-serif;
+    position: absolute;
+    left: -200px;
+    transition: left .25s ease-in-out;
+    -moz-transition: left .25s ease-in-out;
+    -webkit-transition: left .25s ease-in-out;
+
+    &.show {
+        left: 50px;
+    }
+}
+
+.authorize-button {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    display: none;
+}
+
+#home {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+    transition: top 1s ease-in-out;
+    -moz-transition: top 1s ease-in-out;
+    -webkit-transition: top 1s ease-in-out;
+
+    &.down {
+        top: 100%;
+    }
+}
+
+#home-inner {
+    background: #222626;
+    height: 100%;
+    margin-top: 60px;
+    text-align: center;
+
+    h2 {
+        font-size: 128px;
+        text-transform: uppercase;
+        font-family: 'Bubbler One', Arial, sans-serif;
+        color: white;
+    }
+}
+
+#subtitle {
+    font-size: 28px;
+}
+
+.content {
+    height: 100%;
+    padding: 0 50px;
+}
+
+.half {
+    height: 100%;
+}
+
+.left {
+    width: 50%;
+    float: left;
+}
+
+.right {
+    width: 50%;
+    float: right;
+}
+
+#world {
+    padding-top: 100px;
+}
+
+#country {
+    font-size: 48px;
+    text-align: center;
+    line-height: 100px;
+    color: #272c2d;
+    text-transform: uppercase;
+    height: 100px;
+    overflow: hidden;
+}
+
+.data {
+    margin-top: 100px;
+
+    h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+}
+
+#visits-count {
+    font-size: 128px;
+    text-align: center;
+    font-family: 'Bubbler One', Arial, sans-serif;
+    color: #fff;
+}
+
+.panels {
+    height: 100%;
+}
+
+.panel {
+    width: 50%;
+    height: 25%;
+    float: left;
+    margin-bottom: 20px;
+    overflow: hidden;
+    overflow-y: auto;
+
+    h3 {
+        background: #272c2d;
+        margin: 0 5px;
+        padding: 5px 10px;
+    }
+
+    ul {
+        margin: 0 5px;
+
+        li {
+            height: 30px;
+            line-height: 30px;
+            font-size: 13px;
+            border-bottom: 1px solid #5a6063;
+
+            p {
+                margin: 0 10px;
+                display: block;
+            }
+        }
+    }
+
+    .name, .value, .percent{
+        display: inline-block;
+    }
+
+    .name{
+        width: 45%;
+    }
+
+    .value{
+        width: 25%;
+        text-align: right;
+    }
+
+    .percent{
+        width: 25%;
+        text-align: right;
+    }
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
