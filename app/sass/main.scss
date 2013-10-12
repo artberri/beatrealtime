@@ -145,6 +145,10 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
     @include transition-duration(.25s);
     @include transition-timing-function(ease-in-out);
 
+    .blue {
+        padding-left: 40px;
+    }
+
     &.show {
         left: 50px;
     }
@@ -184,6 +188,16 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
         font-family: 'Bubbler One', Arial, sans-serif;
         color: white;
     }
+}
+
+#logo {
+    max-height: 90px;
+}
+
+#minilogo {
+    max-height: 30px;
+    position: absolute;
+    top: 14px;
 }
 
 #subtitle {
