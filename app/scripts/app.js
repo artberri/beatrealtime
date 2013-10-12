@@ -1,6 +1,8 @@
-/*global define */
+/*global define,ga */
 define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
     'use strict';
+
+    var theProperty;
 
     var previousData = {
         total: 0,
@@ -17,9 +19,9 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
         $accountSelector = $('#account-selector'),
         $propertiesSelector = $('#properties-selector'),
         $profileSelector = $('#profile-selector'),
-        $selectors = $('#selectors'),
         $home = $('#home'),
-        $headerText = $('.header-text');
+        $headerText = $('.header-text'),
+        $authorInfo = $('#home-info');
 
     var methods = {
         init: function() {
@@ -35,9 +37,10 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
             return function() {
                 // Hide login button
                 $authorizeButtonContainer.addClass('hide');
+                $authorInfo.addClass('down');
                 // Query accounts
                 gapi.queryAccounts(function(accounts) {
-                    $selectors.removeClass('hide');
+                    $('.selector-container:first-child').removeClass('toright');
                     // Populate selector
                     $.each(accounts, function(index, account) {
                         $('<option value="' + account.id + '">' + account.name + '</option>').appendTo($accountSelector);
@@ -48,8 +51,12 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
                             $parent = $this.parent(),
                             accountId = parseFloat($this.val());
 
+                        var $selectedAccount = $.grep(accounts, function(item) {
+                            return parseFloat(item.id) === accountId;
+                        });
+
                         // If selects...
-                        if(accountId > 0) {
+                        if($selectedAccount.length === 1) {
                             // ...query web properties
                             $parent.addClass('toleft');
                             gapi.queryWebproperties(accountId, function(properties) {
@@ -64,8 +71,13 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
                                         $parent = $this.parent(),
                                         propertyId = $this.val();
 
+                                    var $selectedProperty = $.grep(properties, function(item) {
+                                        return item.id === propertyId;
+                                    });
+
                                     // If selects...
-                                    if(propertyId) {
+                                    if($selectedProperty.length === 1) {
+                                        theProperty = $selectedProperty[0];
                                         $parent.addClass('toleft');
                                         // ...query web profiles
                                         gapi.queryProfiles(accountId, propertyId, function(profiles) {
@@ -79,8 +91,13 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
                                                 var $this = $(this),
                                                     $parent = $this.parent(),
                                                     profileId = parseFloat($this.val());
+
+                                                var $selectedProfile = $.grep(profiles, function(item) {
+                                                    return parseFloat(item.id) === profileId;
+                                                });
+
                                                 // If selects...
-                                                if(profileId > 0) {
+                                                if($selectedProfile.length === 1) {
                                                     // Magic starts
                                                     $parent.addClass('toleft');
                                                     that.realtime(profileId);
@@ -118,6 +135,11 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
             world.init();
 
             (function exec() {
+                // Track event
+                if(typeof ga !== undefined) {
+                    ga('send', 'event', 'request', theProperty.websiteUrl);
+                }
+
                 // Get data
                 gapi.realtime(profileId, function(response) {
 

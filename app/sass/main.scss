@@ -66,12 +66,17 @@ body {
     height: 100%;
 }
 
+a {
+    color: $blue;
+    text-decoration: none;
+}
+
 h1, h2, h3, h4, p, ul, li, input, textarea, div {
     font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .blue {
-    color: #57e9be;
+    color: $blue;
 }
 
 .height100 {
@@ -99,6 +104,11 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
     @include transition-duration(.25s);
     @include transition-timing-function(ease-in-out);
 
+    &.info {
+        background: transparent;
+        top: 100%;
+    }
+
     &.toleft {
         left: -50%;
     }
@@ -119,6 +129,55 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
         -webkit-appearance:none;
         -moz-appearance:none;
         appearance:none;
+    }
+}
+
+#home-info {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 700px;
+    margin-left: -350px;
+    text-align: center;
+    @include transition-property(bottom);
+    @include transition-duration(.5s);
+    @include transition-timing-function(ease-in-out);
+
+    &.down {
+        bottom: -400px;
+    }
+
+    h3 {
+        color: $blue;
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+
+    #author {
+        padding: 20px;
+        clear: both;
+        display: block;
+        float: none;
+        text-align: left;
+        width: 440px;
+        margin: 0 auto 20px;
+        background: rgba(0, 0, 0, 0.1);
+
+        a {
+            color: #fff;
+        }
+    }
+
+    #footer {
+        display: block;
+        clear: both;
+        font-size: 10px;
+    }
+
+    img {
+        margin-right: 20px;
+        float: left;
+        max-width: 70px;
     }
 }
 

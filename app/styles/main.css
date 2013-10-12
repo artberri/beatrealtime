@@ -172,32 +172,38 @@ body {
 }
 
 /* line 69, ../sass/main.scss */
+a {
+  color: #57e9be;
+  text-decoration: none;
+}
+
+/* line 74, ../sass/main.scss */
 h1, h2, h3, h4, p, ul, li, input, textarea, div {
   font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 73, ../sass/main.scss */
+/* line 78, ../sass/main.scss */
 .blue {
   color: #57e9be;
 }
 
-/* line 77, ../sass/main.scss */
+/* line 82, ../sass/main.scss */
 .height100 {
   height: 100%;
 }
 
-/* line 81, ../sass/main.scss */
+/* line 86, ../sass/main.scss */
 .small {
   font-size: 11px;
 }
 
-/* line 85, ../sass/main.scss */
+/* line 90, ../sass/main.scss */
 #selectors {
   margin-top: 50px;
   position: relative;
 }
 
-/* line 90, ../sass/main.scss */
+/* line 95, ../sass/main.scss */
 .selector-container {
   position: absolute;
   left: 50%;
@@ -223,15 +229,20 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-/* line 102, ../sass/main.scss */
+/* line 107, ../sass/main.scss */
+.selector-container.info {
+  background: transparent;
+  top: 100%;
+}
+/* line 112, ../sass/main.scss */
 .selector-container.toleft {
   left: -50%;
 }
-/* line 106, ../sass/main.scss */
+/* line 116, ../sass/main.scss */
 .selector-container.toright {
   left: 150%;
 }
-/* line 110, ../sass/main.scss */
+/* line 120, ../sass/main.scss */
 .selector-container select {
   font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 24px;
@@ -246,7 +257,66 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   appearance: none;
 }
 
-/* line 125, ../sass/main.scss */
+/* line 135, ../sass/main.scss */
+#home-info {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 700px;
+  margin-left: -350px;
+  text-align: center;
+  -webkit-transition-property: bottom;
+  -moz-transition-property: bottom;
+  -o-transition-property: bottom;
+  transition-property: bottom;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+/* line 146, ../sass/main.scss */
+#home-info.down {
+  bottom: -400px;
+}
+/* line 150, ../sass/main.scss */
+#home-info h3 {
+  color: #57e9be;
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+/* line 156, ../sass/main.scss */
+#home-info #author {
+  padding: 20px;
+  clear: both;
+  display: block;
+  float: none;
+  text-align: left;
+  width: 440px;
+  margin: 0 auto 20px;
+  background: rgba(0, 0, 0, 0.1);
+}
+/* line 166, ../sass/main.scss */
+#home-info #author a {
+  color: #fff;
+}
+/* line 171, ../sass/main.scss */
+#home-info #footer {
+  display: block;
+  clear: both;
+  font-size: 10px;
+}
+/* line 177, ../sass/main.scss */
+#home-info img {
+  margin-right: 20px;
+  float: left;
+  max-width: 70px;
+}
+
+/* line 184, ../sass/main.scss */
 .header {
   position: absolute;
   top: 0;
@@ -257,7 +327,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   height: 60px;
 }
 
-/* line 135, ../sass/main.scss */
+/* line 194, ../sass/main.scss */
 .header-text {
   font-size: 20px;
   color: #fff;
@@ -280,16 +350,16 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-/* line 148, ../sass/main.scss */
+/* line 207, ../sass/main.scss */
 .header-text .blue {
   padding-left: 40px;
 }
-/* line 152, ../sass/main.scss */
+/* line 211, ../sass/main.scss */
 .header-text.show {
   left: 50px;
 }
 
-/* line 157, ../sass/main.scss */
+/* line 216, ../sass/main.scss */
 .authorize-button {
   position: absolute;
   top: 0;
@@ -297,7 +367,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   display: none;
 }
 
-/* line 164, ../sass/main.scss */
+/* line 223, ../sass/main.scss */
 #home {
   position: absolute;
   top: 0%;
@@ -317,19 +387,19 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-/* line 174, ../sass/main.scss */
+/* line 233, ../sass/main.scss */
 #home.down {
   top: 100%;
 }
 
-/* line 179, ../sass/main.scss */
+/* line 238, ../sass/main.scss */
 #home-inner {
   background: #222626;
   height: 100%;
   margin-top: 60px;
   text-align: center;
 }
-/* line 185, ../sass/main.scss */
+/* line 244, ../sass/main.scss */
 #home-inner h2 {
   font-size: 128px;
   text-transform: uppercase;
@@ -337,52 +407,52 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   color: white;
 }
 
-/* line 193, ../sass/main.scss */
+/* line 252, ../sass/main.scss */
 #logo {
   max-height: 90px;
 }
 
-/* line 197, ../sass/main.scss */
+/* line 256, ../sass/main.scss */
 #minilogo {
   max-height: 30px;
   position: absolute;
   top: 14px;
 }
 
-/* line 203, ../sass/main.scss */
+/* line 262, ../sass/main.scss */
 #subtitle {
   font-size: 28px;
 }
 
-/* line 207, ../sass/main.scss */
+/* line 266, ../sass/main.scss */
 .content {
   height: 100%;
   padding: 0 50px;
 }
 
-/* line 212, ../sass/main.scss */
+/* line 271, ../sass/main.scss */
 .half {
   height: 100%;
 }
 
-/* line 216, ../sass/main.scss */
+/* line 275, ../sass/main.scss */
 .left {
   width: 50%;
   float: left;
 }
 
-/* line 221, ../sass/main.scss */
+/* line 280, ../sass/main.scss */
 .right {
   width: 50%;
   float: right;
 }
 
-/* line 226, ../sass/main.scss */
+/* line 285, ../sass/main.scss */
 #world {
   padding-top: 100px;
 }
 
-/* line 230, ../sass/main.scss */
+/* line 289, ../sass/main.scss */
 #country {
   font-size: 48px;
   text-align: center;
@@ -393,17 +463,17 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   overflow: hidden;
 }
 
-/* line 240, ../sass/main.scss */
+/* line 299, ../sass/main.scss */
 .data {
   margin-top: 100px;
 }
-/* line 243, ../sass/main.scss */
+/* line 302, ../sass/main.scss */
 .data h2 {
   font-size: 24px;
   text-align: center;
 }
 
-/* line 249, ../sass/main.scss */
+/* line 308, ../sass/main.scss */
 #visits-count {
   font-size: 128px;
   text-align: center;
@@ -411,12 +481,12 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   color: #fff;
 }
 
-/* line 256, ../sass/main.scss */
+/* line 315, ../sass/main.scss */
 .panels {
   height: 100%;
 }
 
-/* line 260, ../sass/main.scss */
+/* line 319, ../sass/main.scss */
 .panel {
   width: 50%;
   height: 25%;
@@ -424,17 +494,17 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   margin-bottom: 20px;
   overflow: hidden;
 }
-/* line 268, ../sass/main.scss */
+/* line 327, ../sass/main.scss */
 .panel h3 {
   background: #272c2d;
   margin: 0 5px;
   padding: 5px 10px;
 }
-/* line 274, ../sass/main.scss */
+/* line 333, ../sass/main.scss */
 .panel ul {
   margin: 0 5px;
 }
-/* line 277, ../sass/main.scss */
+/* line 336, ../sass/main.scss */
 .panel ul li {
   overflow: hidden;
   height: 30px;
@@ -455,7 +525,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   -o-transition-timing-function: linear;
   transition-timing-function: linear;
 }
-/* line 288, ../sass/main.scss */
+/* line 347, ../sass/main.scss */
 .panel ul li.change {
   -webkit-transition-property: background-color;
   -moz-transition-property: background-color;
@@ -471,32 +541,32 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
   transition-timing-function: linear;
   background-color: #cc3732;
 }
-/* line 295, ../sass/main.scss */
+/* line 354, ../sass/main.scss */
 .panel ul li p {
   margin: 0 10px;
   display: block;
 }
-/* line 302, ../sass/main.scss */
+/* line 361, ../sass/main.scss */
 .panel .name, .panel .value, .panel .percent {
   display: inline-block;
   overflow: hidden;
 }
-/* line 307, ../sass/main.scss */
+/* line 366, ../sass/main.scss */
 .panel .name {
   width: 45%;
 }
-/* line 311, ../sass/main.scss */
+/* line 370, ../sass/main.scss */
 .panel .value {
   width: 25%;
   text-align: right;
 }
-/* line 316, ../sass/main.scss */
+/* line 375, ../sass/main.scss */
 .panel .percent {
   width: 25%;
   text-align: right;
 }
 
-/* line 322, ../sass/main.scss */
+/* line 381, ../sass/main.scss */
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
