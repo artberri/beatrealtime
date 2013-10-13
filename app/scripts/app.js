@@ -2,17 +2,20 @@
 define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
     'use strict';
 
-    var theProperty;
+    var theProperty,
+        forceStop = false,
+        timer = null;
 
-    var previousData = {
-        total: 0,
-        data: {
-            country: [],
-            browser: [],
-            device: [],
-            medium: []
-        }
-    };
+    var defaultData = {
+            total: 0,
+            data: {
+                country: [],
+                browser: [],
+                device: [],
+                medium: []
+            }
+        },
+        previousData = defaultData;
 
     var $authorizeButtonContainer = $('#gSignInWrapper'),
         $authorizeButton = $('#authorize-button'),
@@ -21,15 +24,56 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
         $profileSelector = $('#profile-selector'),
         $home = $('#home'),
         $headerText = $('.header-text'),
-        $authorInfo = $('#home-info');
+        $authorInfo = $('#home-info'),
+        $gotohome = $('#gotohome'),
+        $visitCounter = $('#visits-count'),
+        $aboutLink = $('#about-link'),
+        $aboutPage = $('#about');
 
     var methods = {
         init: function() {
             var that = this;
 
+            // Header home button
+            $gotohome.click(function(e) {
+                e.preventDefault();
+
+                forceStop = true;
+                previousData = defaultData;
+
+                clearTimeout(timer);
+                that.resetData();
+                $accountSelector.val(0).parent().removeClass('toleft').removeClass('toright');
+                $propertiesSelector.val(0).parent().removeClass('toleft').addClass('toright');
+                $profileSelector.val(0).parent().removeClass('toleft').addClass('toright');
+                $home.removeClass('down');
+                $headerText.removeClass('show');
+                $aboutLink.removeClass('show');
+            });
+
+            $aboutLink.click(function(e) {
+                e.preventDefault();
+
+                var text = $aboutLink.html();
+
+                $aboutPage.toggleClass('show');
+                if(text === 'Close') {
+                    $aboutLink.html('About &amp; FAQ');
+                }
+                else {
+                    $aboutLink.html('Close');
+                }
+
+            });
+
             return function(config) {
                 gapi.init(config, that.logged(), that.unlogged());
             };
+        },
+        resetData: function() {
+            $('.data-table').html('');
+            $visitCounter.html(0);
+            //$('canvas').remove();
         },
         logged: function() {
             var that = this;
@@ -41,6 +85,8 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
                 // Query accounts
                 gapi.queryAccounts(function(accounts) {
                     $('.selector-container:first-child').removeClass('toright');
+                    // Reset selector
+                    $accountSelector.html('<option value="0">Choose account</option>').unbind('change');
                     // Populate selector
                     $.each(accounts, function(index, account) {
                         $('<option value="' + account.id + '">' + account.name + '</option>').appendTo($accountSelector);
@@ -61,6 +107,8 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
                             $parent.addClass('toleft');
                             gapi.queryWebproperties(accountId, function(properties) {
                                 $propertiesSelector.parent().removeClass('toright');
+                                // Reset selector
+                                $propertiesSelector.html('<option value="0">Choose property</option>').unbind('change');
                                 // Populate selector
                                 $.each(properties, function(index, property) {
                                     $('<option value="' + property.id + '">' + property.name + '</option>').appendTo($propertiesSelector);
@@ -82,6 +130,8 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
                                         // ...query web profiles
                                         gapi.queryProfiles(accountId, propertyId, function(profiles) {
                                             $profileSelector.parent().removeClass('toright');
+                                            // Reset selector
+                                            $profileSelector.html('<option value="0">Choose profile</option>').unbind('change');
                                             // Populate selector
                                             $.each(profiles, function(index, profile) {
                                                 $('<option value="' + profile.id + '">' + profile.name + '</option>').appendTo($profileSelector);
@@ -100,6 +150,7 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
                                                 if($selectedProfile.length === 1) {
                                                     // Magic starts
                                                     $parent.addClass('toleft');
+                                                    forceStop = false;
                                                     that.realtime(profileId);
                                                 }
                                             }).addClass('show');
@@ -146,15 +197,24 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
                     $home.addClass('down');
                     setTimeout(function() {
                         $headerText.addClass('show');
+                        $aboutLink.addClass('show');
                     }, 500);
 
                     // Update total
-                    $('#visits-count').html(response.total);
+                    $visitCounter.html(response.total);
                     // Update tables
                     $.each(response.data, function(tableName, table) {
-                        var $table = $('#' + tableName + '-table');
+                        var $table = $('#' + tableName + '-table'),
+                            previousTable = previousData.data[tableName],
+                            previousTableIndexed = {};
+
+                        // Construct array to know if up or down
+                        $.each(previousTable, function(previousRowIndex, previousRow) {
+                            previousTableIndexed[previousRow.name] = previousRow.value;
+                        });
+
                         $.each(table, function(rowIndex, row) {
-                            var previousRow = previousData.data[tableName][rowIndex];
+                            var previousRow = previousTable[rowIndex];
                             if(previousRow !== row) {
                                 var selector = rowIndex === 0 ? '*:first-child' : '*:nth-child(' + (rowIndex+1) + ')',
                                     $li = $table.children(selector),
@@ -175,13 +235,17 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
                                 // Cambia el dato
                                 if((!previousRow) || (previousRow.name !== row.name) || (previousRow.value !== row.value)) {
                                     $li.addClass('change');
+                                    var previousValue = parseFloat(previousTableIndexed[row.name]);
+                                    if(previousValue > row.value) {
+                                        $li.addClass('down');
+                                    }
                                 }
                             }
                         });
                     });
 
                     setTimeout(function() {
-                        $('.panels li').removeClass('change');
+                        $('.panels li').removeClass('change').removeClass('down');
                     }, 500);
 
                     // Serch for new visits by country
@@ -200,17 +264,22 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
                         }
                     });
 
-                    // Move world
-                    if(newCountries.length > 0) {
-                        world.moveTo(newCountries);
+                    if(!forceStop) {
+
+                        // Move world
+                        if(newCountries.length > 0) {
+                            world.moveTo(newCountries);
+                        }
+
+                        previousData = response;
+
+                        // Infinite
+                        timer = setTimeout(function() {
+                            if(!forceStop) {
+                                exec();
+                            }
+                        }, 10000);
                     }
-
-                    previousData = response;
-
-                    // Infinite
-                    setTimeout(function() {
-                        exec();
-                    }, 10000);
                 });
             })();
         }

@@ -4,6 +4,7 @@
 
 @import "compass/css3/border-radius";
 @import "compass/css3/transition";
+@import "compass/css3/transform";
 
 /* Google Button */
 
@@ -71,7 +72,7 @@ a {
     text-decoration: none;
 }
 
-h1, h2, h3, h4, p, ul, li, input, textarea, div {
+h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -132,6 +133,21 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
     }
 }
 
+.author {
+    padding: 20px;
+    clear: both;
+    display: block;
+    float: none;
+    text-align: left;
+    width: 440px;
+    margin: 0 auto 20px;
+    background: rgba(0, 0, 0, 0.1);
+
+    a {
+        color: #fff;
+    }
+}
+
 #home-info {
     position: absolute;
     bottom: 20px;
@@ -151,21 +167,6 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
         color: $blue;
         font-size: 20px;
         margin-bottom: 0px;
-    }
-
-    #author {
-        padding: 20px;
-        clear: both;
-        display: block;
-        float: none;
-        text-align: left;
-        width: 440px;
-        margin: 0 auto 20px;
-        background: rgba(0, 0, 0, 0.1);
-
-        a {
-            color: #fff;
-        }
     }
 
     #footer {
@@ -210,6 +211,16 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
 
     &.show {
         left: 50px;
+    }
+
+    img {
+        @include transition-duration(.5s);
+    }
+
+    #gotohome:hover {
+        img {
+            @include rotate(180deg);
+        }
     }
 }
 
@@ -290,7 +301,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
     font-size: 48px;
     text-align: center;
     line-height: 100px;
-    color: #272c2d;
+    color: $darkgrey;
     text-transform: uppercase;
     height: 100px;
     overflow: hidden;
@@ -325,7 +336,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
     // overflow-y: auto;
 
     h3 {
-        background: #272c2d;
+        background: $darkgrey;
         margin: 0 5px;
         padding: 5px 10px;
     }
@@ -349,6 +360,10 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
                 @include transition-duration(.3s);
                 @include transition-timing-function(linear);
                 background-color: $red;
+
+                &.down {
+                    background-color: $darkgrey;
+                }
             }
 
             p {
@@ -375,6 +390,73 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div {
     .percent{
         width: 25%;
         text-align: right;
+    }
+}
+
+#about-link {
+    position: absolute;
+    right: -50px;
+    color: #fff;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 15px;
+    line-height: 30px;
+    height: 30px;
+    background: $grey;
+    padding: 0 10px;
+    color: $darkgrey;
+    @include border-radius(5px);
+    @include transition-property(right);
+    @include transition-duration(.25s);
+    @include transition-timing-function(ease-in-out);
+
+    &.show {
+        right: 140px;
+    }
+}
+
+.page {
+    background: #353D3F;
+    position: absolute;
+    top: 0%;
+    right: -50%;
+    width: 50%;
+    z-index: 100;
+    margin-top: 60px;
+    @include transition-property(right);
+    @include transition-duration(.5s);
+    @include transition-timing-function(ease-in-out);
+
+    &.show {
+        right: 0;
+    }
+}
+
+.question {
+    margin: 0 20px 20px;
+
+    h4 {
+        color: $blue;
+        font-size: 24px;
+    }
+}
+
+#about .author {
+    margin: 20px;
+    min-height: 100px;
+    width: auto;
+    img {
+        max-width: 100px;
+        float: left;
+        margin: 0 20px 10px 0;
+    }
+}
+
+#social {
+    margin-top: 20px;
+    .social {
+        text-align: left;
+        display: inline-block;
     }
 }
 

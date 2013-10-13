@@ -6,13 +6,14 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>gaworld</title>
+        <title>BeatRealtime - Have a look to your visitors right now!</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width,minimal-scale=1">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
         <link href='http://fonts.googleapis.com/css?family=Lato:300|Bubbler+One' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="styles/main.css">
+        <link rel="author" href="https://plus.google.com/u/0/118299472847856941458/">
         <!-- endbuild -->
     </head>
     <body>
@@ -20,12 +21,14 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <header class="header">
-             <h1 class="header-text"><img id="minilogo" src="images/logo.svg" /> <span class="blue">Beat</span>Realtime</h1>
+             <a id="about-link" href="#about">About &amp; FAQ</a>
+             <h1 class="header-text"><a id="gotohome" href="#"><img id="minilogo" src="images/logo.svg" /> <span class="blue">Beat</span>Realtime</a></h1>
         </header>
-        <!--<button id="deauthorize-button" class="authorize-button">Authorize</button>-->
+
+        <!-- home -->
         <div id="home" class="height100">
             <div id="home-info">
-                <div id="author">
+                <div class="author">
                     <a href="http://albertovarelasanchez.com"><img src="images/alberto.png" alt="Alberto Varela Sánchez" /></a>
                      <h3 class="blue">The author</h3>
                      <p>I'm <a href="http://albertovarelasanchez.com">Alberto</a>, a web developer from <a href="http://www.plataformaurbana.cl/wp-content/uploads/2013/02/1361206658_mapa_mundi_bilbao.jpg">Bilbao</a>, and I've made this site to train my skills and for fun.</p>
@@ -46,22 +49,56 @@
                 <div id="selectors">
                     <div class="selector-container toright">
                         <select id="account-selector">
-                            <option value="0">Choose account</option>
+
                         </select>
                     </div>
                     <div class="selector-container toright">
                         <select id="properties-selector">
-                            <option value="0">Choose property</option>
+
                         </select>
                     </div>
                     <div class="selector-container toright">
                         <select id="profile-selector">
-                            <option value="0">Choose profile</option>
+
                         </select>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- about -->
+        <div id="about" class="height100 page">
+            <div>
+                <div class="author">
+                    <a href="http://albertovarelasanchez.com"><img src="images/alberto.png" alt="Alberto Varela Sánchez" /></a>
+                     <h3 class="blue">The author</h3>
+                     <p>I'm <a href="http://albertovarelasanchez.com">Alberto</a>, a web developer from <a href="http://www.plataformaurbana.cl/wp-content/uploads/2013/02/1361206658_mapa_mundi_bilbao.jpg">Bilbao</a>, and I've made this site to train my skills and for fun. If you liked this, share it!</p>
+
+                    <div id="social">
+                        <div class="social">
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-related="artberri">Tweet</a>
+                        </div>
+                        <div class="social">
+                            <div class="g-plusone" data-size="medium" data-callback="gplusCallback" data-href="http://www.beatrealtime.com"></div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            <div class="question">
+                <h4>Where does the data come from?</h4>
+                <p>When you have logged with your Google Account, you have authorized BeatRealtime to check your analytics data via the Google Analytics API. You can learn more about it in <a href="https://developers.google.com/analytics/devguides/reporting/" target="_blank">this link</a>.</p>
+            </div>
+            <div class="question">
+                <h4>What we do with your information?</h4>
+                <p>All we do with your data is showing it to you. We do not save or share them with anyone.</p>
+            </div>
+            <div class="question">
+                <h4>How did you do it?</h4>
+                <p>Is fully developed with HTML, CSS and Javascript. You can show|get|fork the code at <a target="_blank" href="https://github.com/artberri/beatrealtime">Github</a>. Only free software was used and no kitties were harmed in the making of this website.</p>
+            </div>
+        </div>
+
+        <!-- dashboard -->
         <div class="content height100">
             <div class="half left height100">
                 <div class="data height100">
@@ -70,25 +107,25 @@
                     <div class="panels height100">
                         <div class="panel">
                             <h3>Country</h3>
-                            <ul id="country-table">
+                            <ul id="country-table" class="data-table">
 
                             </ul>
                         </div>
                         <div class="panel">
                             <h3>Device</h3>
-                            <ul id="device-table">
+                            <ul id="device-table" class="data-table">
 
                             </ul>
                         </div>
                         <div class="panel">
                             <h3>Browser</h3>
-                            <ul id="browser-table">
+                            <ul id="browser-table" class="data-table">
 
                             </ul>
                         </div>
                         <div class="panel">
                             <h3>Medium</h3>
-                            <ul id="medium-table">
+                            <ul id="medium-table" class="data-table">
 
                             </ul>
                         </div>
@@ -99,15 +136,8 @@
                 <div id="world" class="height100">
                     <h3 id="country"></h3>
                 </div>
-                <svg id="world2" ></svg>
             </div>
         </div>
-
-
-
-
-
-
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
