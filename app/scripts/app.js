@@ -188,7 +188,7 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
             (function exec() {
                 // Track event
                 if(typeof ga !== undefined) {
-                    ga('send', 'event', 'request', theProperty.websiteUrl);
+                    ga('send', 'event', 'request');
                 }
 
                 // Get data
