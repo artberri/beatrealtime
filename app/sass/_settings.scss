@@ -3,3 +3,18 @@ $red: #cc3732;
 $blue: #57e9be;
 $darkgrey: #272c2d;
 $lightgrey: #5a6063;
+
+$minidesktop: 1024px;
+$mobile: 640px;
+
+@mixin breakpoint($max) {
+    @media (max-width: $max) { @content; }
+}
+
+@mixin minidesktop() {
+    @include breakpoint($minidesktop) { @content; }
+}
+
+@mixin mobile() {
+    @include breakpoint($mobile) { @content; }
+}

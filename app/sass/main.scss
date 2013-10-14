@@ -67,6 +67,10 @@ body {
     height: 100%;
 }
 
+img {
+    max-width: 100%;
+}
+
 a {
     color: $blue;
     text-decoration: none;
@@ -91,6 +95,10 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
 #selectors {
     margin-top: 50px;
     position: relative;
+
+    @include mobile() {
+        margin-top: 0;
+    }
 }
 
 .selector-container {
@@ -131,6 +139,18 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
         -moz-appearance:none;
         appearance:none;
     }
+
+    @include mobile() {
+        margin-top: 0;
+        margin-left: -125px;
+        background: $grey;
+        @include border-radius(5px);
+        width: 250px;
+
+        select {
+            font-size: 16px;
+        }
+    }
 }
 
 .author {
@@ -145,6 +165,15 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
 
     a {
         color: #fff;
+    }
+
+    @include mobile() {
+        width: auto;
+        font-size: 14px;
+
+        h3 {
+            font-size: 18px;
+        }
     }
 }
 
@@ -180,6 +209,23 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
         float: left;
         max-width: 70px;
     }
+
+    @include minidesktop() {
+        width: 500px;
+        margin-left: -250px;
+    }
+
+    @include mobile() {
+        width: 100%;
+        margin-left: 0;
+        left: 0;
+        bottom: 5px;
+
+        img {
+            max-width: 40px;
+            float: right;
+        }
+    }
 }
 
 .header {
@@ -190,6 +236,11 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     background: #222626;
     padding: 0 50px;
     height: 60px;
+    z-index: 100;
+
+    @include mobile() {
+        padding: 0;
+    }
 }
 
 .header-text {
@@ -211,15 +262,21 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
 
     &.show {
         left: 50px;
+        @include mobile {
+            left: 10px;
+        }
     }
 
     img {
         @include transition-duration(.5s);
     }
 
-    #gotohome:hover {
-        img {
-            @include rotate(180deg);
+    #gotohome {
+        color: #fff;
+        &:hover {
+            img {
+                @include rotate(180deg);
+            }
         }
     }
 }
@@ -257,11 +314,25 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
         text-transform: uppercase;
         font-family: 'Bubbler One', Arial, sans-serif;
         color: white;
+
+        @include minidesktop() {
+            font-size: 96px;
+        }
+
+        @include mobile() {
+            font-size: 36px;
+        }
     }
 }
 
 #logo {
     max-height: 90px;
+    @include minidesktop() {
+        max-height: 65px;
+    }
+    @include mobile() {
+        max-height: 25px;
+    }
 }
 
 #minilogo {
@@ -272,11 +343,21 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
 
 #subtitle {
     font-size: 28px;
+    @include minidesktop() {
+        font-size: 20px;
+    }
+    @include mobile() {
+        font-size: 14px;
+    }
 }
 
 .content {
     height: 100%;
     padding: 0 50px;
+    @include mobile() {
+        padding: 0 10px;
+        overflow-y: auto;
+    }
 }
 
 .half {
@@ -295,6 +376,9 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
 
 #world {
     padding-top: 100px;
+    @include minidesktop() {
+        padding-top: 0;
+    }
 }
 
 #country {
@@ -305,6 +389,12 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     text-transform: uppercase;
     height: 100px;
     overflow: hidden;
+
+    @include minidesktop() {
+        font-size: 20px;
+        height: 40px;
+        line-height: 40px;
+    }
 }
 
 .data {
@@ -313,6 +403,12 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     h2 {
         font-size: 24px;
         text-align: center;
+        @include minidesktop() {
+            width: 50%;
+        }
+        @include mobile() {
+            width: 100%;
+        }
     }
 }
 
@@ -321,6 +417,14 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     text-align: center;
     font-family: 'Bubbler One', Arial, sans-serif;
     color: #fff;
+
+    @include minidesktop() {
+        width: 50%;
+    }
+
+    @include mobile() {
+        width: 100%;
+    }
 }
 
 .panels {
@@ -391,6 +495,13 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
         width: 25%;
         text-align: right;
     }
+
+    @include mobile() {
+        float: none;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
 }
 
 #about-link {
@@ -417,6 +528,17 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     &:hover {
         opacity: 1;
     }
+
+    @include mobile {
+        right: -200px;
+        text-indent: -9999px;
+        width: 40px;
+        background: $blue;
+        padding: 0;
+        &.show {
+            right: 0;
+        }
+    }
 }
 
 .page {
@@ -425,14 +547,19 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     top: 0%;
     right: -50%;
     width: 50%;
-    z-index: 100;
-    margin-top: 60px;
+    z-index: 50;
+    overflow-y: auto;
     @include transition-property(right);
     @include transition-duration(.5s);
     @include transition-timing-function(ease-in-out);
 
     &.show {
         right: 0;
+    }
+
+    @include mobile() {
+        right: -100%;
+        width: 100%;
     }
 }
 
@@ -446,7 +573,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
 }
 
 #about .author {
-    margin: 20px;
+    margin: 80px 20px 20px;
     min-height: 100px;
     width: auto;
     img {
@@ -469,4 +596,35 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
+}
+@include minidesktop() {
+    canvas {
+        max-height: 200px;
+        max-width: 200px;
+        display: block;
+        margin: auto;
+    }
+
+    .half.left {
+        width: 100%;
+    }
+
+    .half.right {
+        height: auto;
+        position: absolute;
+        right: 40px;
+        top: 80px;
+    }
+}
+
+@include mobile() {
+
+    canvas {
+        max-height: none;
+        max-width: none;
+    }
+
+    .half.right {
+        display: none;
+    }
 }
