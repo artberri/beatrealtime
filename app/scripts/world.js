@@ -39,23 +39,31 @@ define(['d3', 'queue', 'topojson', 'zepto'], function (d3, queue, topojson, $) {
             };
         },
         ready: function(error, world, names) {
+            var that = this;
             land = topojson.feature(world, world.objects.land);
             countries = topojson.feature(world, world.objects.countries).features;
             borders = topojson.mesh(world, world.objects.countries, function(a, b) {
                 return a !== b;
             });
 
-            countries = countries.filter(function(d) {
-                return names.some(function(n) {
-                    if (parseInt(d.id, 10) === parseInt(n.id, 10)) { // d.id == n.id
-                        d.name = n.name;
+            if(countries) {
+                countries = countries.filter(function(d) {
+                    return names.some(function(n) {
+                        if (parseInt(d.id, 10) === parseInt(n.id, 10)) { // d.id == n.id
+                            d.name = n.name;
 
-                        return d.name;
-                    }
+                            return d.name;
+                        }
+                    });
+                }).sort(function(a, b) {
+                    return a.name.localeCompare(b.name);
                 });
-            }).sort(function(a, b) {
-                return a.name.localeCompare(b.name);
-            });
+            }
+            else {
+                setTimeout(function() {
+                    that.init();
+                }, 100);
+            }
         },
         moveTo: function() {
             return function(names) {
