@@ -58,13 +58,19 @@ define(['d3', 'queue', 'topojson', 'zepto'], function (d3, queue, topojson, $) {
             });
         },
         moveTo: function() {
-            return function(names) {
+            return function(names, data, maxValue) {
                 var move = function(names) {
                     var name = names[0];
 
                     var theCountry = $.grep(countries, function(e){
                         return e.name.toLowerCase().trim() === name.toLowerCase().trim();
                     });
+
+                    var warmColor = '#57e9be',
+                        coldColor = '#5a6063',
+                        colorScale = d3.scale.linear()
+                            .domain([0, maxValue])
+                            .range([coldColor, warmColor]);
 
                     if (theCountry.length === 1) {
                         theCountry = theCountry[0];
@@ -82,15 +88,26 @@ define(['d3', 'queue', 'topojson', 'zepto'], function (d3, queue, topojson, $) {
                                         c.fillStyle = '#272c2d';
                                         c.fill();
 
-                                        c.fillStyle = '#5a6063';
+                                        c.fillStyle = coldColor;
                                         c.beginPath();
                                         path(land);
                                         c.fill();
 
-                                        c.fillStyle = '#57e9be';
-                                        c.beginPath();
-                                        path(theCountry);
-                                        c.fill();
+                                        // Color the countries with a scale
+                                        $.each(data, function(indexCountry, country) {
+                                            if(country.value > 0) {
+                                                var currentCountry = $.grep(countries, function(e){
+                                                    return e.name.toLowerCase().trim() === country.name.toLowerCase().trim();
+                                                });
+                                                if (currentCountry.length === 1) {
+                                                    c.fillStyle = colorScale(country.value);
+                                                    c.beginPath();
+                                                    path(currentCountry[0]);
+                                                    c.fill();
+                                                }
+                                            }
+                                        });
+
 
                                         c.strokeStyle = '#222';
                                         c.lineWidth = 0.5;

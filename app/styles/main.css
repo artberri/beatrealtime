@@ -509,6 +509,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   float: left;
   margin-bottom: 20px;
   overflow: hidden;
+  overflow-y: auto;
 }
 /* line 338, ../sass/main.scss */
 .panel h3 {

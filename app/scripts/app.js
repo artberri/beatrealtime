@@ -249,12 +249,20 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
                     }, 500);
 
                     // Serch for new visits by country
-                    var newCountries = [];
+                    var newCountries = [],
+                        countriesByName = {},
+                        maxCountryValue = 0;
+
                     $.each(response.data.country, function(index, country) {
                         var countryName = country.name,
                             previousCountry = $.grep(previousData.data.country, function(e){
                                 return e.name === countryName;
                             });
+
+                        countriesByName[country.name] = country;
+                        if(maxCountryValue < country.value) {
+                            maxCountryValue = country.value;
+                        }
 
                         if(previousCountry.length === 0) {
                             newCountries.push(country.name);
@@ -265,10 +273,9 @@ define(['gapi', 'world', 'zepto'], function (gapi, world, $) {
                     });
 
                     if(!forceStop) {
-
                         // Move world
                         if(newCountries.length > 0) {
-                            world.moveTo(newCountries);
+                            world.moveTo(newCountries, countriesByName, maxCountryValue);
                         }
 
                         previousData = response;

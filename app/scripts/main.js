@@ -31,7 +31,8 @@ require.config({
         d3: '../bower_components/d3/d3',
         queue: '../bower_components/queue-async/queue',
         topojson: '../bower_components/topojson/topojson',
-        zepto: '../bower_components/zepto/zepto'
+        zepto: '../bower_components/zepto/zepto',
+        nanoscroller: '../bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller'
     },
     shim: {
         d3: {
