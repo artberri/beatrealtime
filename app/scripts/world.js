@@ -39,31 +39,23 @@ define(['d3', 'queue', 'topojson', 'zepto'], function (d3, queue, topojson, $) {
             };
         },
         ready: function(error, world, names) {
-            var that = this;
             land = topojson.feature(world, world.objects.land);
             countries = topojson.feature(world, world.objects.countries).features;
             borders = topojson.mesh(world, world.objects.countries, function(a, b) {
                 return a !== b;
             });
 
-            if(countries) {
-                countries = countries.filter(function(d) {
-                    return names.some(function(n) {
-                        if (parseInt(d.id, 10) === parseInt(n.id, 10)) { // d.id == n.id
-                            d.name = n.name;
+            countries = countries.filter(function(d) {
+                return names.some(function(n) {
+                    if (parseInt(d.id, 10) === parseInt(n.id, 10)) { // d.id == n.id
+                        d.name = n.name;
 
-                            return d.name;
-                        }
-                    });
-                }).sort(function(a, b) {
-                    return a.name.localeCompare(b.name);
+                        return d.name;
+                    }
                 });
-            }
-            else {
-                setTimeout(function() {
-                    that.init();
-                }, 100);
-            }
+            }).sort(function(a, b) {
+                return a.name.localeCompare(b.name);
+            });
         },
         moveTo: function() {
             return function(names) {
@@ -124,7 +116,15 @@ define(['d3', 'queue', 'topojson', 'zepto'], function (d3, queue, topojson, $) {
                     }
                 };
 
-                move(names);
+                if(countries) {
+                    move(names);
+                }
+                else {
+                    setTimeout(function() {
+                        move(names);
+                    }, 500);
+                }
+
             };
         }
     };
