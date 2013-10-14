@@ -593,17 +593,12 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   color: #fff;
   text-transform: uppercase;
   display: inline-block;
-  margin: 15px;
-  line-height: 30px;
-  height: 30px;
-  background: #3c4547;
-  padding: 0 10px;
-  color: #272c2d;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
+  margin: 10px;
+  background: #5a6063;
+  line-height: 40px;
+  height: 40px;
+  padding: 0 15px;
+  color: #57e9be;
   -webkit-transition-property: right;
   -moz-transition-property: right;
   -o-transition-property: right;
@@ -616,13 +611,18 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   -moz-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
+  opacity: 0.8;
 }
 /* line 413, ../sass/main.scss */
 #about-link.show {
-  right: 140px;
+  right: 100px;
+}
+/* line 417, ../sass/main.scss */
+#about-link:hover {
+  opacity: 1;
 }
 
-/* line 418, ../sass/main.scss */
+/* line 422, ../sass/main.scss */
 .page {
   background: #353D3F;
   position: absolute;
@@ -644,45 +644,45 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-/* line 430, ../sass/main.scss */
+/* line 434, ../sass/main.scss */
 .page.show {
   right: 0;
 }
 
-/* line 435, ../sass/main.scss */
+/* line 439, ../sass/main.scss */
 .question {
   margin: 0 20px 20px;
 }
-/* line 438, ../sass/main.scss */
+/* line 442, ../sass/main.scss */
 .question h4 {
   color: #57e9be;
   font-size: 24px;
 }
 
-/* line 444, ../sass/main.scss */
+/* line 448, ../sass/main.scss */
 #about .author {
   margin: 20px;
   min-height: 100px;
   width: auto;
 }
-/* line 448, ../sass/main.scss */
+/* line 452, ../sass/main.scss */
 #about .author img {
   max-width: 100px;
   float: left;
   margin: 0 20px 10px 0;
 }
 
-/* line 455, ../sass/main.scss */
+/* line 459, ../sass/main.scss */
 #social {
   margin-top: 20px;
 }
-/* line 457, ../sass/main.scss */
+/* line 461, ../sass/main.scss */
 #social .social {
   text-align: left;
   display: inline-block;
 }
 
-/* line 463, ../sass/main.scss */
+/* line 467, ../sass/main.scss */
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;

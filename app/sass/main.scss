@@ -349,7 +349,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
             height: 30px;
             line-height: 30px;
             font-size: 13px;
-            border-bottom: 1px solid #5a6063;
+            border-bottom: 1px solid $lightgrey;
             background: $grey;
             @include transition-property(background-color);
             @include transition-duration(.8s);
@@ -399,19 +399,23 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     color: #fff;
     text-transform: uppercase;
     display: inline-block;
-    margin: 15px;
-    line-height: 30px;
-    height: 30px;
-    background: $grey;
-    padding: 0 10px;
-    color: $darkgrey;
-    @include border-radius(5px);
+    margin: 10px;
+    background: $lightgrey;
+    line-height: 40px;
+    height: 40px;
+    padding: 0 15px;
+    color: $blue;
     @include transition-property(right);
     @include transition-duration(.25s);
     @include transition-timing-function(ease-in-out);
+    opacity: 0.8;
 
     &.show {
-        right: 140px;
+        right: 100px;
+    }
+
+    &:hover {
+        opacity: 1;
     }
 }
 
