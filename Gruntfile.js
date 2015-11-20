@@ -13,8 +13,6 @@ module.exports = function (grunt) {
     // load all grunt tasks
     require('load-grunt-tasks')(grunt);
 
-    grunt.loadNpmTasks('grunt-compass');
-
     grunt.initConfig({
         // configurable paths
         yeoman: {
