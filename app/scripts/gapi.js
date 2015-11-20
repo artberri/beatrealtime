@@ -36,7 +36,7 @@ define(['async!https://apis.google.com/js/client.js!onload'], function() {
             var that = this;
 
             return function(authResult) {
-                if (authResult) {
+                if (!authResult.error) {
                     // The user has authorized access
                     // Load the Analytics Client. This function is defined in the next section.
                     that.loadAnalyticsClient();
