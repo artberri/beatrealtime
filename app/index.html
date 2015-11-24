@@ -9,14 +9,32 @@
         <title>BeatRealtime - Have a look to your visitors right now!</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width,minimum-scale=1">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
         <link href='http://fonts.googleapis.com/css?family=Lato:300|Bubbler+One' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="styles/main.css">
-        <link rel="author" href="https://plus.google.com/u/0/118299472847856941458/">
         <!-- endbuild -->
+        <link rel="author" href="https://plus.google.com/u/0/118299472847856941458/">
     </head>
     <body>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's Tracking ID. -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-XXXXX-X', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+
+        <!-- Twitter button. -->
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+        <!-- G+ button. -->
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -27,12 +45,30 @@
 
         <!-- home -->
         <div id="home" class="height100">
+                            <!--<div id="social">
+                        <div class="social">
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-via="artberri">Tweet</a>
+                        </div>
+                        <div class="social">
+                            <div class="g-plusone" data-size="medium" data-href="http://www.beatrealtime.com"></div>
+                        </div>
+                    </div>-->
             <div id="home-info">
                 <div class="author">
                     <a href="http://albertovarelasanchez.com"><img src="images/alberto.png" alt="Alberto Varela Sánchez" /></a>
                      <h3 class="blue">The author</h3>
                      <p>I'm <a href="http://albertovarelasanchez.com">Alberto</a>, a web developer from <a href="http://www.plataformaurbana.cl/wp-content/uploads/2013/02/1361206658_mapa_mundi_bilbao.jpg">Bilbao</a>, and I've made this site to train my skills and for fun.</p>
                  </div>
+
+                <div id="social-home">
+                    <div class="social">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-via="artberri">Tweet</a>
+                    </div>
+                    <div class="social">
+                        <div class="g-plusone" data-size="medium" data-href="http://www.beatrealtime.com"></div>
+                    </div>
+                </div>
+
                  <p id="footer">Only free software was used and no kitties were harmed in the making of this website.</p>
 
             </div>
@@ -76,10 +112,10 @@
 
                     <div id="social">
                         <div class="social">
-                            <a href="https://twitter.com/share" class="twitter-share-button" data-related="artberri">Tweet</a>
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-via="artberri">Tweet</a>
                         </div>
                         <div class="social">
-                            <div class="g-plusone" data-size="medium" data-callback="gplusCallback" data-href="http://www.beatrealtime.com"></div>
+                            <div class="g-plusone" data-size="medium" data-href="http://www.beatrealtime.com"></div>
                         </div>
                     </div>
                  </div>
@@ -147,25 +183,12 @@
             </div>
         </div>
 
-        <!-- build:js scripts/vendor.js -->
+        <!-- build:js(.) scripts/vendor.js -->
         <!-- bower:js -->
-
         <!-- endbower -->
         <!-- endbuild -->
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-XXXXXXX-XX', 'beatrealtime.com');
-          ga('send', 'pageview');
-
-        </script>
-
-        <!-- build:js scripts/main.js -->
+        <!-- build:js(.tmp) scripts/main.js -->
         <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
         <!-- endbuild -->
 

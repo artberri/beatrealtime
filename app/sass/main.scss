@@ -585,10 +585,15 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
 
 #social {
     margin-top: 20px;
-    .social {
-        text-align: left;
-        display: inline-block;
-    }
+}
+
+#social-home {
+    margin: 20px 0;
+}
+
+.social {
+    text-align: left;
+    display: inline-block;
 }
 
 .browsehappy {
@@ -597,6 +602,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     color: #000;
     padding: 0.2em 0;
 }
+
 @include minidesktop() {
     canvas {
         max-height: 200px;

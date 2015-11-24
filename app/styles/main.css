@@ -4,145 +4,143 @@ Copyright 2013 Yahoo! Inc. All rights reserved.
 Licensed under the BSD License.
 http://yuilibrary.com/license/
 */
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 html {
   color: #000;
   background: #FFF;
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
   margin: 0;
   padding: 0;
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 fieldset, img {
   border: 0;
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 address, caption, cite, code, dfn, em, strong, th, var {
   font-style: normal;
   font-weight: normal;
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 ol, ul {
   list-style: none;
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 caption, th {
   text-align: left;
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
   font-weight: normal;
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 q:before, q:after {
   content: '';
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 abbr, acronym {
   border: 0;
   font-variant: normal;
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 sup {
   vertical-align: text-top;
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 sub {
   vertical-align: text-bottom;
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 input, textarea, select {
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 input, textarea, select {
   *font-size: 100%;
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 legend {
   color: #000;
 }
 
-/* line 7, ../sass/_yuireset.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/_yuireset\.scss}line{font-family:\000037}}
 #yui3-css-stamp.cssreset {
   display: none;
 }
 
 /* Google Button */
-/* line 11, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000311}}
 .hideable {
   opacity: 1;
-  -webkit-transition-property: opacity;
   -moz-transition-property: opacity;
   -o-transition-property: opacity;
+  -webkit-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   transition-duration: 0.25s;
-  -webkit-transition-timing-function: ease-in-out;
   -moz-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-/* line 17, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000317}}
 .hideable.hide {
   opacity: 0;
 }
 
-/* line 22, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000322}}
 #customBtn {
   margin-top: 50px;
   display: inline-block;
   background: #cc3732;
   color: white;
   width: 300px;
-  -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  -webkit-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 30, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000330}}
 #customBtn a {
   text-decoration: none;
   color: #fff;
   display: block;
 }
-/* line 36, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000336}}
 #customBtn:hover {
   background: #e74b37;
   cursor: hand;
 }
-/* line 41, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000341}}
 #customBtn span.label {
   font-weight: bold;
 }
-/* line 44, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000344}}
 #customBtn span.icon {
   background: url("../images/g.png") transparent 10px 50% no-repeat;
   display: inline-block;
@@ -150,7 +148,7 @@ legend {
   width: 40px;
   height: 40px;
 }
-/* line 51, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000351}}
 #customBtn span.buttonText {
   display: inline-block;
   vertical-align: middle;
@@ -158,107 +156,105 @@ legend {
   padding-right: 40px;
 }
 
-/* line 59, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000359}}
 html {
   height: 100%;
   overflow: hidden;
 }
 
-/* line 64, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000364}}
 body {
-  background: #3c4547;
+  background: #3C4547;
   color: #bbb;
   height: 100%;
 }
 
-/* line 70, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000370}}
 img {
   max-width: 100%;
 }
 
-/* line 74, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000374}}
 a {
   color: #57e9be;
   text-decoration: none;
 }
 
-/* line 79, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000379}}
 h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 83, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000383}}
 .blue {
   color: #57e9be;
 }
 
-/* line 87, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000387}}
 .height100 {
   height: 100%;
 }
 
-/* line 91, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000391}}
 .small {
   font-size: 11px;
 }
 
-/* line 95, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000395}}
 #selectors {
   margin-top: 50px;
   position: relative;
 }
 @media (max-width: 640px) {
-  /* line 95, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\0000395}}
   #selectors {
     margin-top: 0;
   }
 }
 
-/* line 104, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003104}}
 .selector-container {
   position: absolute;
   left: 50%;
   margin-left: -200px;
-  background: #3c4547;
-  -webkit-border-radius: 5px;
+  background: #3C4547;
   -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  -webkit-border-radius: 5px;
   border-radius: 5px;
   width: 400px;
   padding: 5px;
-  -webkit-transition-property: left;
   -moz-transition-property: left;
   -o-transition-property: left;
+  -webkit-transition-property: left;
   transition-property: left;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   transition-duration: 0.25s;
-  -webkit-transition-timing-function: ease-in-out;
   -moz-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-/* line 116, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003116}}
 .selector-container.info {
   background: transparent;
   top: 100%;
 }
-/* line 121, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003121}}
 .selector-container.toleft {
   left: -50%;
 }
-/* line 125, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003125}}
 .selector-container.toright {
   left: 150%;
 }
-/* line 129, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003129}}
 .selector-container select {
   font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 24px;
   padding: 20px;
-  background: #3c4547;
+  background: #3C4547;
   border: 0;
   color: white;
   display: block;
@@ -268,25 +264,23 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   appearance: none;
 }
 @media (max-width: 640px) {
-  /* line 104, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003104}}
   .selector-container {
     margin-top: 0;
     margin-left: -125px;
-    background: #3c4547;
-    -webkit-border-radius: 5px;
+    background: #3C4547;
     -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
     border-radius: 5px;
     width: 250px;
   }
-  /* line 150, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003150}}
   .selector-container select {
     font-size: 16px;
   }
 }
 
-/* line 156, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003156}}
 .author {
   padding: 20px;
   clear: both;
@@ -297,23 +291,23 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   margin: 0 auto 20px;
   background: rgba(0, 0, 0, 0.1);
 }
-/* line 166, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003166}}
 .author a {
   color: #fff;
 }
 @media (max-width: 640px) {
-  /* line 156, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003156}}
   .author {
     width: auto;
     font-size: 14px;
   }
-  /* line 174, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003174}}
   .author h3 {
     font-size: 18px;
   }
 }
 
-/* line 180, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003180}}
 #home-info {
   position: absolute;
   bottom: 20px;
@@ -321,64 +315,64 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   width: 700px;
   margin-left: -350px;
   text-align: center;
-  -webkit-transition-property: bottom;
   -moz-transition-property: bottom;
   -o-transition-property: bottom;
+  -webkit-transition-property: bottom;
   transition-property: bottom;
-  -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease-in-out;
   -moz-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-/* line 191, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003191}}
 #home-info.down {
   bottom: -400px;
 }
-/* line 195, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003195}}
 #home-info h3 {
   color: #57e9be;
   font-size: 20px;
   margin-bottom: 0px;
 }
-/* line 201, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003201}}
 #home-info #footer {
   display: block;
   clear: both;
   font-size: 10px;
 }
-/* line 207, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003207}}
 #home-info img {
   margin-right: 20px;
   float: left;
   max-width: 70px;
 }
 @media (max-width: 1024px) {
-  /* line 180, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003180}}
   #home-info {
     width: 500px;
     margin-left: -250px;
   }
 }
 @media (max-width: 640px) {
-  /* line 180, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003180}}
   #home-info {
     width: 100%;
     margin-left: 0;
     left: 0;
     bottom: 5px;
   }
-  /* line 224, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003224}}
   #home-info img {
     max-width: 40px;
     float: right;
   }
 }
 
-/* line 231, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003231}}
 .header {
   position: absolute;
   top: 0;
@@ -390,13 +384,13 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   z-index: 100;
 }
 @media (max-width: 640px) {
-  /* line 231, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003231}}
   .header {
     padding: 0;
   }
 }
 
-/* line 246, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003246}}
 .header-text {
   font-size: 20px;
   color: #fff;
@@ -406,54 +400,53 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   font-family: 'Bubbler One', Arial, sans-serif;
   position: absolute;
   left: -200px;
-  -webkit-transition-property: left;
   -moz-transition-property: left;
   -o-transition-property: left;
+  -webkit-transition-property: left;
   transition-property: left;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   transition-duration: 0.25s;
-  -webkit-transition-timing-function: ease-in-out;
   -moz-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-/* line 259, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003259}}
 .header-text .blue {
   padding-left: 40px;
 }
-/* line 263, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003263}}
 .header-text.show {
   left: 50px;
 }
 @media (max-width: 640px) {
-  /* line 263, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003263}}
   .header-text.show {
     left: 10px;
   }
 }
-/* line 270, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003270}}
 .header-text img {
-  -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 274, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003274}}
 .header-text #gotohome {
   color: #fff;
 }
-/* line 277, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003277}}
 .header-text #gotohome:hover img {
-  -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
-/* line 284, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003284}}
 .authorize-button {
   position: absolute;
   top: 0;
@@ -461,39 +454,39 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   display: none;
 }
 
-/* line 291, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003291}}
 #home {
   position: absolute;
   top: 0%;
   left: 0;
   width: 100%;
   z-index: 200;
-  -webkit-transition-property: top;
   -moz-transition-property: top;
   -o-transition-property: top;
+  -webkit-transition-property: top;
   transition-property: top;
-  -webkit-transition-duration: 1s;
   -moz-transition-duration: 1s;
   -o-transition-duration: 1s;
+  -webkit-transition-duration: 1s;
   transition-duration: 1s;
-  -webkit-transition-timing-function: ease-in-out;
   -moz-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-/* line 301, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003301}}
 #home.down {
   top: 100%;
 }
 
-/* line 306, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003306}}
 #home-inner {
   background: #222626;
   height: 100%;
   margin-top: 60px;
   text-align: center;
 }
-/* line 312, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003312}}
 #home-inner h2 {
   font-size: 128px;
   text-transform: uppercase;
@@ -501,101 +494,101 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   color: white;
 }
 @media (max-width: 1024px) {
-  /* line 312, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003312}}
   #home-inner h2 {
     font-size: 96px;
   }
 }
 @media (max-width: 640px) {
-  /* line 312, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003312}}
   #home-inner h2 {
     font-size: 36px;
   }
 }
 
-/* line 328, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003328}}
 #logo {
   max-height: 90px;
 }
 @media (max-width: 1024px) {
-  /* line 328, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003328}}
   #logo {
     max-height: 65px;
   }
 }
 @media (max-width: 640px) {
-  /* line 328, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003328}}
   #logo {
     max-height: 25px;
   }
 }
 
-/* line 338, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003338}}
 #minilogo {
   max-height: 30px;
   position: absolute;
   top: 14px;
 }
 
-/* line 344, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003344}}
 #subtitle {
   font-size: 28px;
 }
 @media (max-width: 1024px) {
-  /* line 344, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003344}}
   #subtitle {
     font-size: 20px;
   }
 }
 @media (max-width: 640px) {
-  /* line 344, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003344}}
   #subtitle {
     font-size: 14px;
   }
 }
 
-/* line 354, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003354}}
 .content {
   height: 100%;
   padding: 0 50px;
 }
 @media (max-width: 640px) {
-  /* line 354, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003354}}
   .content {
     padding: 0 10px;
     overflow-y: auto;
   }
 }
 
-/* line 363, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003363}}
 .half {
   height: 100%;
 }
 
-/* line 367, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003367}}
 .left {
   width: 50%;
   float: left;
 }
 
-/* line 372, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003372}}
 .right {
   width: 50%;
   float: right;
 }
 
-/* line 377, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003377}}
 #world {
   padding-top: 100px;
 }
 @media (max-width: 1024px) {
-  /* line 377, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003377}}
   #world {
     padding-top: 0;
   }
 }
 
-/* line 384, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003384}}
 #country {
   font-size: 48px;
   text-align: center;
@@ -606,7 +599,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   overflow: hidden;
 }
 @media (max-width: 1024px) {
-  /* line 384, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003384}}
   #country {
     font-size: 20px;
     height: 40px;
@@ -614,29 +607,29 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   }
 }
 
-/* line 400, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003400}}
 .data {
   margin-top: 100px;
 }
-/* line 403, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003403}}
 .data h2 {
   font-size: 24px;
   text-align: center;
 }
 @media (max-width: 1024px) {
-  /* line 403, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003403}}
   .data h2 {
     width: 50%;
   }
 }
 @media (max-width: 640px) {
-  /* line 403, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003403}}
   .data h2 {
     width: 100%;
   }
 }
 
-/* line 415, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003415}}
 #visits-count {
   font-size: 128px;
   text-align: center;
@@ -644,24 +637,24 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   color: #fff;
 }
 @media (max-width: 1024px) {
-  /* line 415, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003415}}
   #visits-count {
     width: 50%;
   }
 }
 @media (max-width: 640px) {
-  /* line 415, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003415}}
   #visits-count {
     width: 100%;
   }
 }
 
-/* line 430, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003430}}
 .panels {
   height: 100%;
 }
 
-/* line 434, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003434}}
 .panel {
   width: 50%;
   height: 25%;
@@ -670,83 +663,83 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   overflow: hidden;
   overflow-y: auto;
 }
-/* line 442, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003442}}
 .panel h3 {
   background: #272c2d;
   margin: 0 5px;
   padding: 5px 10px;
 }
-/* line 448, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003448}}
 .panel ul {
   margin: 0 5px;
 }
-/* line 451, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003451}}
 .panel ul li {
   overflow: hidden;
   height: 30px;
   line-height: 30px;
   font-size: 13px;
   border-bottom: 1px solid #5a6063;
-  background: #3c4547;
-  -webkit-transition-property: background-color;
+  background: #3C4547;
   -moz-transition-property: background-color;
   -o-transition-property: background-color;
+  -webkit-transition-property: background-color;
   transition-property: background-color;
-  -webkit-transition-duration: 0.8s;
   -moz-transition-duration: 0.8s;
   -o-transition-duration: 0.8s;
+  -webkit-transition-duration: 0.8s;
   transition-duration: 0.8s;
-  -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
 }
-/* line 462, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003462}}
 .panel ul li.change {
-  -webkit-transition-property: background-color;
   -moz-transition-property: background-color;
   -o-transition-property: background-color;
+  -webkit-transition-property: background-color;
   transition-property: background-color;
-  -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
-  -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
   -o-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
   transition-timing-function: linear;
   background-color: #cc3732;
 }
-/* line 468, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003468}}
 .panel ul li.change.down {
   background-color: #272c2d;
 }
-/* line 473, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003473}}
 .panel ul li p {
   margin: 0 10px;
   display: block;
 }
-/* line 480, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003480}}
 .panel .name, .panel .value, .panel .percent {
   display: inline-block;
   overflow: hidden;
 }
-/* line 485, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003485}}
 .panel .name {
   width: 45%;
 }
-/* line 489, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003489}}
 .panel .value {
   width: 25%;
   text-align: right;
 }
-/* line 494, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003494}}
 .panel .percent {
   width: 25%;
   text-align: right;
 }
 @media (max-width: 640px) {
-  /* line 434, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003434}}
   .panel {
     float: none;
     width: 100%;
@@ -755,7 +748,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   }
 }
 
-/* line 507, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003507}}
 #about-link {
   position: absolute;
   right: -50px;
@@ -768,30 +761,30 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   height: 40px;
   padding: 0 15px;
   color: #57e9be;
-  -webkit-transition-property: right;
   -moz-transition-property: right;
   -o-transition-property: right;
+  -webkit-transition-property: right;
   transition-property: right;
-  -webkit-transition-duration: 0.25s;
   -moz-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
   transition-duration: 0.25s;
-  -webkit-transition-timing-function: ease-in-out;
   -moz-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
   opacity: 0.8;
 }
-/* line 524, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003524}}
 #about-link.show {
   right: 100px;
 }
-/* line 528, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003528}}
 #about-link:hover {
   opacity: 1;
 }
 @media (max-width: 640px) {
-  /* line 507, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003507}}
   #about-link {
     right: -200px;
     text-indent: -9999px;
@@ -799,13 +792,13 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     background: #57e9be;
     padding: 0;
   }
-  /* line 538, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003538}}
   #about-link.show {
     right: 0;
   }
 }
 
-/* line 544, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003544}}
 .page {
   background: #353D3F;
   position: absolute;
@@ -814,65 +807,71 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   width: 50%;
   z-index: 50;
   overflow-y: auto;
-  -webkit-transition-property: right;
   -moz-transition-property: right;
   -o-transition-property: right;
+  -webkit-transition-property: right;
   transition-property: right;
-  -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
-  -webkit-transition-timing-function: ease-in-out;
   -moz-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
+  -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-/* line 556, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003556}}
 .page.show {
   right: 0;
 }
 @media (max-width: 640px) {
-  /* line 544, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003544}}
   .page {
     right: -100%;
     width: 100%;
   }
 }
 
-/* line 566, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003566}}
 .question {
   margin: 0 20px 20px;
 }
-/* line 569, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003569}}
 .question h4 {
   color: #57e9be;
   font-size: 24px;
 }
 
-/* line 575, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003575}}
 #about .author {
   margin: 80px 20px 20px;
   min-height: 100px;
   width: auto;
 }
-/* line 579, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003579}}
 #about .author img {
   max-width: 100px;
   float: left;
   margin: 0 20px 10px 0;
 }
 
-/* line 586, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003586}}
 #social {
   margin-top: 20px;
 }
-/* line 588, ../sass/main.scss */
-#social .social {
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003590}}
+#social-home {
+  margin: 20px 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003594}}
+.social {
   text-align: left;
   display: inline-block;
 }
 
-/* line 594, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003599}}
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -881,7 +880,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
 }
 
 @media (max-width: 1024px) {
-  /* line 601, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003607}}
   canvas {
     max-height: 200px;
     max-width: 200px;
@@ -889,12 +888,12 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     margin: auto;
   }
 
-  /* line 608, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003614}}
   .half.left {
     width: 100%;
   }
 
-  /* line 612, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003618}}
   .half.right {
     height: auto;
     position: absolute;
@@ -903,13 +902,13 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
   }
 }
 @media (max-width: 640px) {
-  /* line 622, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003628}}
   canvas {
     max-height: none;
     max-width: none;
   }
 
-  /* line 627, ../sass/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/alberto\/Projects\/beatrealtime\/app\/sass\/main\.scss}line{font-family:\00003633}}
   .half.right {
     display: none;
   }
