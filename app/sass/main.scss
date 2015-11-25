@@ -603,6 +603,7 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     padding: 0.2em 0;
 }
 
+
 @include minidesktop() {
     canvas {
         max-height: 200px;

@@ -5,3 +5,4 @@ dist
 app/bower_components
 bkp
 app/scripts/config.js
+app/styles/main.css
