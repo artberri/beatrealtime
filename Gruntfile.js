@@ -1,4 +1,5 @@
-// Generated on 2013-10-08 using generator-webapp 0.4.3
+/*jshint camelcase: false */
+
 'use strict';
 
 module.exports = function (grunt) {
@@ -14,6 +15,7 @@ module.exports = function (grunt) {
             dist: 'dist',
             tmp: '.tmp'
         },
+        secret: grunt.file.readJSON('secret.json'),
         watch: {
             compass: {
                 files: ['<%= yeoman.app %>/sass/{,*/}*.{scss,sass}'],
@@ -227,7 +229,6 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.dist %>',
                     src: [
                         '*.{ico,png,txt}',
-                        '.htaccess',
                         'images/{,*/}*.{webp,gif}',
                         'styles/{,*/}*.*',
                         'data/*.*'
@@ -253,6 +254,34 @@ module.exports = function (grunt) {
                 'svgmin',
                 'htmlmin'
             ]
+        },
+        environments: {
+            options: {
+                local_path: 'dist',
+                current_symlink: 'httpdocs',
+                deploy_path: '/home/www/beatrealtime.com'
+            },
+            production: {
+                options: {
+                    host: '<%= secret.host %>',
+                    username: '<%= secret.username %>',
+                    password: '<%= secret.password %>',
+                    port: '<%= secret.port %>',
+                    releases_to_keep: '5'
+                }
+            }
+        },
+        template: {
+            options: {
+                data: {
+                    trackingID: '<%= secret.trackingID %>'
+                }
+            },
+            index: {
+                files: {
+                    '<%= yeoman.dist %>/index.html': ['<%= yeoman.dist %>/index.html']
+                }
+            }
         }
     });
 
@@ -289,11 +318,16 @@ module.exports = function (grunt) {
         'copy:dist',
       //  'uglify',
         'rev',
-        'usemin'
+        'usemin',
+        'template'
     ]);
 
     grunt.registerTask('default', [
         'jshint',
         'build'
+    ]);
+
+    grunt.registerTask('deploy', [
+        'ssh_deploy:production'
     ]);
 };
