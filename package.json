@@ -4,7 +4,7 @@
   "repository": "https://github.com/artberri/beatrealtime",
   "license": "MIT",
   "scripts" : {
-    "preinstall": "npm install -g bower",
+    "preinstall": "npm install -g bower grunt-cli",
     "install": "bower install",
     "test" : "grunt test"
   },
