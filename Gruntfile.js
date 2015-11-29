@@ -15,6 +15,10 @@ module.exports = function (grunt) {
             dist: 'dist',
             tmp: '.tmp',
             trackingID: process.env.BEATREALTIME_TRACKING_ID,
+            api: {
+                clientId: process.env.BEATREALTIME_GA_CLIENT_ID,
+                apiKey: process.env.BEATREALTIME_GA_API_KEY
+            },
             deploy: {
                 user: process.env.BEATREALTIME_DEPLOY_USER,
                 pass: process.env.BEATREALTIME_DEPLOY_PASS
@@ -250,7 +254,8 @@ module.exports = function (grunt) {
         concurrent: {
             server: [
                 'compass',
-                'copy:styles'
+                'copy:styles',
+                'template:config'
             ],
             dist: [
                 'copy:styles',
@@ -278,12 +283,19 @@ module.exports = function (grunt) {
         template: {
             options: {
                 data: {
-                    trackingID: '<%= yeoman.deploy.trackingID %>'
+                    trackingID: '<%= yeoman.deploy.trackingID %>',
+                    clientId: '<%= yeoman.api.clientId %>',
+                    apiKey: '<%= yeoman.api.apiKey %>'
                 }
             },
             index: {
                 files: {
                     '<%= yeoman.dist %>/index.html': ['<%= yeoman.dist %>/index.html']
+                }
+            },
+            config: {
+                files: {
+                    '<%= yeoman.app %>/scripts/config.js': ['<%= yeoman.app %>/scripts/config.js.dist']
                 }
             }
         }
@@ -314,6 +326,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
+        'template:config',
         'requirejs',
         'compass:dist',
         'autoprefixer',
@@ -322,7 +335,7 @@ module.exports = function (grunt) {
         'copy:dist',
         'rev',
         'usemin',
-        'template'
+        'template:index'
     ]);
 
     grunt.registerTask('test', [

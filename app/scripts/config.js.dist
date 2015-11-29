@@ -3,8 +3,8 @@ define([], function () {
     'use strict';
 
     var apiData = {
-        clientId: 'XXXXX',
-        apiKey: 'XXXXX'
+        clientId: '<%- clientId %>',
+        apiKey: '<%- apiKey %>'
     };
 
     return {
