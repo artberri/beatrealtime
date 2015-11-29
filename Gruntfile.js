@@ -22,7 +22,8 @@ module.exports = function (grunt) {
             deploy: {
                 user: process.env.BEATREALTIME_DEPLOY_USER,
                 pass: process.env.BEATREALTIME_DEPLOY_PASS
-            }
+            },
+            newRelicScript: process.env.BEATREALTIME_NEWRELIC_SCRIPT
         },
         watch: {
             compass: {
@@ -285,7 +286,8 @@ module.exports = function (grunt) {
                 data: {
                     trackingID: '<%= yeoman.deploy.trackingID %>',
                     clientId: '<%= yeoman.api.clientId %>',
-                    apiKey: '<%= yeoman.api.apiKey %>'
+                    apiKey: '<%= yeoman.api.apiKey %>',
+                    newRelicScript: '<%= yeoman.newRelicScript %>',
                 }
             },
             index: {
