@@ -325,8 +325,12 @@ module.exports = function (grunt) {
         'template'
     ]);
 
+    grunt.registerTask('test', [
+        'jshint'
+    ]);
+
     grunt.registerTask('default', [
-        'jshint',
+        'test',
         'build'
     ]);
 

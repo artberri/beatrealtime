@@ -3,11 +3,8 @@ sudo: false
 language: node_js
 node_js:
   - 0.12.7
-before_script:
-  - npm install -g bower
-  - bower install
 scripts:
-  - grunt
+  - grunt build
 notifications:
   email: false
 deploy:

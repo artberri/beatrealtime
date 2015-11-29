@@ -3,6 +3,11 @@
   "version": "1.0.1",
   "repository": "https://github.com/artberri/beatrealtime",
   "license": "MIT",
+  "scripts" : {
+    "preinstall": "npm install -g bower",
+    "install": "bower install",
+    "test" : "grunt test"
+  },
   "dependencies": {},
   "devDependencies": {
     "grunt": "0.4.5",
