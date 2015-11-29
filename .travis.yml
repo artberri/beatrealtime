@@ -3,8 +3,7 @@ sudo: false
 language: node_js
 node_js:
   - 0.12.7
-scripts:
-  - grunt build
+script: grunt
 notifications:
   email: false
 deploy:
