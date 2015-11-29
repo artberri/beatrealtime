@@ -1,0 +1,18 @@
+---
+sudo: false
+language: node_js
+node_js:
+  - 0.12.7
+before_script:
+  - npm install -g bower
+  - bower install
+scripts:
+  - grunt
+notifications:
+  email: false
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: scripts/deploy.sh
+  on:
+    tags: true

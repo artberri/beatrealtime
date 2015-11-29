@@ -13,9 +13,13 @@ module.exports = function (grunt) {
         yeoman: {
             app: 'app',
             dist: 'dist',
-            tmp: '.tmp'
+            tmp: '.tmp',
+            trackingID: process.env.BEATREALTIME_TRACKING_ID,
+            deploy: {
+                user: process.env.BEATREALTIME_DEPLOY_USER,
+                pass: process.env.BEATREALTIME_DEPLOY_PASS
+            }
         },
-        secret: grunt.file.readJSON('secret.json'),
         watch: {
             compass: {
                 files: ['<%= yeoman.app %>/sass/{,*/}*.{scss,sass}'],
@@ -263,10 +267,10 @@ module.exports = function (grunt) {
             },
             production: {
                 options: {
-                    host: '<%= secret.host %>',
-                    username: '<%= secret.username %>',
-                    password: '<%= secret.password %>',
-                    port: '<%= secret.port %>',
+                    host: 'beatrealtime.com',
+                    username: '<%= yeoman.deploy.user %>',
+                    password: '<%= yeoman.deploy.pass %>',
+                    port: 22,
                     releases_to_keep: '5'
                 }
             }
@@ -274,7 +278,7 @@ module.exports = function (grunt) {
         template: {
             options: {
                 data: {
-                    trackingID: '<%= secret.trackingID %>'
+                    trackingID: '<%= yeoman.deploy.trackingID %>'
                 }
             },
             index: {
@@ -316,7 +320,6 @@ module.exports = function (grunt) {
         'useminPrepare',
         'concurrent:dist',
         'copy:dist',
-      //  'uglify',
         'rev',
         'usemin',
         'template'
