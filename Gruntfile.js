@@ -20,12 +20,7 @@ module.exports = function (grunt) {
                 apiKey: process.env.BEATREALTIME_GA_API_KEY
             },
             deploy: {
-                user: process.env.BEATREALTIME_DEPLOY_USER,
-                pass: process.env.BEATREALTIME_DEPLOY_PASS
-            },
-            newRelic: {
-                license: process.env.BEATREALTIME_NEWRELIC_LICENSE,
-                applicationID: process.env.BEATREALTIME_NEWRELIC_APP_ID
+                user: process.env.BEATREALTIME_DEPLOY_USER
             }
         },
         watch: {
@@ -271,14 +266,14 @@ module.exports = function (grunt) {
         environments: {
             options: {
                 local_path: 'dist',
-                current_symlink: 'httpdocs',
-                deploy_path: '/home/www/beatrealtime.com'
+                current_symlink: 'current',
+                deploy_path: '/data/www/beatrealtime.com'
             },
             production: {
                 options: {
-                    host: 'beatrealtime.com',
+                    host: '52.208.104.124',
                     username: '<%= yeoman.deploy.user %>',
-                    password: '<%= yeoman.deploy.pass %>',
+                    privateKey: require('fs').readFileSync(process.env.BEATREALTIME_DEPLOY_KEY),
                     port: 22,
                     releases_to_keep: '5'
                 }
@@ -289,9 +284,7 @@ module.exports = function (grunt) {
                 data: {
                     trackingID: '<%= yeoman.deploy.trackingID %>',
                     clientId: '<%= yeoman.api.clientId %>',
-                    apiKey: '<%= yeoman.api.apiKey %>',
-                    newRelicLicense: '<%= yeoman.newRelic.license %>',
-                    newRelicAppID: '<%= yeoman.newRelic.applicationID %>'
+                    apiKey: '<%= yeoman.api.apiKey %>'
                 }
             },
             index: {
