@@ -1,0 +1,31 @@
+resources:
+- repo: self
+  clean: true
+queue:
+  name: Hosted Linux Preview
+  condition: succeeded()
+steps:
+- task: Docker@0
+  displayName: Build an image
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'Docker Beatrealtime'
+    buildArguments: |
+      BEATREALTIME_GA_CLIENT_ID=$(BEATREALTIME_GA_CLIENT_ID)
+      BEATREALTIME_GA_API_KEY=$(BEATREALTIME_GA_API_KEY)
+      BEATREALTIME_TRACKING_ID=$(BEATREALTIME_TRACKING_ID)
+    imageName: 'artberri/beatrealtime:$(Build.BuildNumber)'
+    qualifyImageName: false
+    includeLatestTag: true
+
+- task: Docker@0
+  displayName: Push an image
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerRegistryConnection: 'Docker Beatrealtime'
+    action: 'Push an image'
+    imageName: 'artberri/beatrealtime:$(Build.BuildNumber)'
+    qualifyImageName: false
+    includeLatestTag: true
+
+
