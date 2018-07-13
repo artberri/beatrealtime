@@ -3,37 +3,73 @@
   "version": "1.0.2",
   "repository": "https://github.com/artberri/beatrealtime",
   "license": "MIT",
-  "scripts" : {
-    "preinstall": "npm install -g bower grunt-cli",
-    "install": "bower install",
-    "test" : "grunt test"
+  "scripts": {
+    "clean": "rm -rf dist/* && mkdir -p dist",
+    "copy:images": "cp -r src/images dist/",
+    "copy:data": "cp -r src/data dist/",
+    "copy": "concurrently \"npm:copy:images\"",
+    "replace:trackingID": "cp src/index.html dist/index.html && replace-in-file '###trackingID###' $BEATREALTIME_TRACKING_ID dist/index.html",
+    "replace:clientId": "replace-in-file '###clientId###' $BEATREALTIME_GA_CLIENT_ID dist/app.js",
+    "replace:apiKey": "replace-in-file '###apiKey###' $BEATREALTIME_GA_API_KEY dist/app.js",
+    "replace": "npm run replace:trackingID && npm run replace:clientId && npm run replace:apiKey",
+    "build:js": "browserify src/js/app.js -o dist/app.js",
+    "build:css": "postcss -o dist/styles.css src/css/main.css",
+    "build": "npm run clean && npm run copy && concurrently \"npm:build:js\" \"npm:build:css\" && npm run replace",
+    "serve": "http-server dist -p 1818",
+    "lint:js": "eslint src/js/*",
+    "lint": "concurrently \"npm:lint:js\"",
+    "watch": "npm run build && concurrently \"npm:serve\" \"npm-watch\"",
+    "minify:js": "uglifyjs dist/app.js --compress --mangle -o dist/app.js",
+    "minify:html": "html-minifier --collapse-whitespace -o dist/index.html dist/index.html",
+    "minify": "concurrently \"npm:minify:js\" \"npm:minify:html\"",
+    "release": "npm run lint && npm run build && npm run minify"
   },
-  "dependencies": {},
+  "watch": {
+    "copy:images": "src/images/*",
+    "copy:data": "src/data/*",
+    "replace": "{src/index.html,dist/app.js}",
+    "build:js": "src/js/*.js",
+    "build:css": "src/css/*.css",
+    "lint:js": "src/**/*.js"
+  },
+  "dependencies": {
+    "uglify-js": "^3.4.4"
+  },
   "devDependencies": {
-    "grunt": "0.4.5",
-    "grunt-autoprefixer": "~3.0.3",
-    "grunt-concurrent": "~2.1.0",
-    "grunt-contrib-clean": "~0.7.0",
-    "grunt-contrib-compass": "~1.0.4",
-    "grunt-contrib-concat": "^0.5.1",
-    "grunt-contrib-connect": "~0.11.2",
-    "grunt-contrib-copy": "~0.8.2",
-    "grunt-contrib-cssmin": "~0.14.0",
-    "grunt-contrib-htmlmin": "~0.6.0",
-    "grunt-contrib-imagemin": "~1.0.0",
-    "grunt-contrib-jshint": "~0.11.3",
-    "grunt-contrib-requirejs": "^0.4.4",
-    "grunt-contrib-uglify": "~0.10.1",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-rev": "~0.1.0",
-    "grunt-ssh-deploy": "^0.3.2",
-    "grunt-svgmin": "~3.1.0",
-    "grunt-template": "^0.2.3",
-    "grunt-usemin": "~3.1.1",
-    "load-grunt-tasks": "~3.3.0",
-    "time-grunt": "~1.2.2"
+    "autoprefixer": "^8.6.5",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babelify": "^8.0.0",
+    "browserify": "^16.2.2",
+    "concurrently": "^3.6.0",
+    "cssnano": "^4.0.1",
+    "eslint": "^5.1.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "html-minifier": "^3.5.19",
+    "http-server": "^0.11.1",
+    "npm-watch": "^0.3.0",
+    "postcss": "^6.0.23",
+    "postcss-cli": "^5.0.1",
+    "postcss-import": "^11.1.0",
+    "postcss-preset-env": "^5.2.1",
+    "postcss-url": "^7.3.2",
+    "precss": "^3.1.2",
+    "replace-in-file": "^3.4.0"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=8.0.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify"
+      ]
+    ]
   }
 }

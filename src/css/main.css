@@ -1,19 +1,12 @@
 @import "settings";
 
-@import  "yuireset";
-
-@import "compass/css3/border-radius";
-@import "compass/css3/transition";
-@import "compass/css3/transform";
-
 /* Google Button */
 
 .hideable {
     opacity: 1;
-    @include transition-property(opacity);
-    @include transition-duration(.25s);
-    @include transition-timing-function(ease-in-out);
-
+    transition-property: opacity;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
     &.hide {
         opacity: 0;
     }
@@ -25,34 +18,31 @@
     background: $red;
     color: white;
     width: 300px;
-    @include border-radius(5px);
-
+    border-radius: 5px;
     a {
         text-decoration: none;
         color: #fff;
         display: block;
     }
-
     &:hover {
-      background: #e74b37;
-      cursor: hand;
+        background: #e74b37;
+        cursor: hand;
     }
-
     span.label {
-      font-weight: bold;
+        font-weight: bold;
     }
     span.icon {
-      background: url('../images/g.png') transparent 10px 50% no-repeat;
-      display: inline-block;
-      vertical-align: middle;
-      width: 40px;
-      height: 40px;
+        background: url('../images/g.png') transparent 10px 50% no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        width: 40px;
+        height: 40px;
     }
     span.buttonText {
-      display: inline-block;
-      vertical-align: middle;
-      padding-left: 40px;
-      padding-right: 40px;
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 40px;
+        padding-right: 40px;
     }
 }
 
@@ -76,7 +66,17 @@ a {
     text-decoration: none;
 }
 
-h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+li,
+input,
+textarea,
+div,
+a {
     font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -95,7 +95,6 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
 #selectors {
     margin-top: 50px;
     position: relative;
-
     @include mobile() {
         margin-top: 0;
     }
@@ -106,26 +105,22 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     left: 50%;
     margin-left: -200px;
     background: $grey;
-    @include border-radius(5px);
+    border-radius: 5px;
     width: 400px;
     padding: 5px;
-    @include transition-property(left);
-    @include transition-duration(.25s);
-    @include transition-timing-function(ease-in-out);
-
+    transition-property: left;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
     &.info {
         background: transparent;
         top: 100%;
     }
-
     &.toleft {
         left: -50%;
     }
-
     &.toright {
         left: 150%;
     }
-
     select {
         font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 24px;
@@ -135,18 +130,16 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
         color: white;
         display: block;
         width: 100%;
-        -webkit-appearance:none;
-        -moz-appearance:none;
-        appearance:none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
-
     @include mobile() {
         margin-top: 0;
         margin-left: -125px;
         background: $grey;
-        @include border-radius(5px);
+        border-radius: 5px;
         width: 250px;
-
         select {
             font-size: 16px;
         }
@@ -162,15 +155,12 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     width: 440px;
     margin: 0 auto 20px;
     background: rgba(0, 0, 0, 0.1);
-
     a {
         color: #fff;
     }
-
     @include mobile() {
         width: auto;
         font-size: 14px;
-
         h3 {
             font-size: 18px;
         }
@@ -184,43 +174,36 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     width: 700px;
     margin-left: -350px;
     text-align: center;
-    @include transition-property(bottom);
-    @include transition-duration(.5s);
-    @include transition-timing-function(ease-in-out);
-
+    transition-property: bottom;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
     &.down {
         bottom: -400px;
     }
-
     h3 {
         color: $blue;
         font-size: 20px;
         margin-bottom: 0px;
     }
-
     #footer {
         display: block;
         clear: both;
         font-size: 10px;
     }
-
     img {
         margin-right: 20px;
         float: left;
         max-width: 70px;
     }
-
     @include minidesktop() {
         width: 500px;
         margin-left: -250px;
     }
-
     @include mobile() {
         width: 100%;
         margin-left: 0;
         left: 0;
         bottom: 5px;
-
         img {
             max-width: 40px;
             float: right;
@@ -237,7 +220,6 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     padding: 0 50px;
     height: 60px;
     z-index: 100;
-
     @include mobile() {
         padding: 0;
     }
@@ -252,30 +234,26 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     font-family: 'Bubbler One', Arial, sans-serif;
     position: absolute;
     left: -200px;
-    @include transition-property(left);
-    @include transition-duration(.25s);
-    @include transition-timing-function(ease-in-out);
-
+    transition-property: left;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
     .blue {
         padding-left: 40px;
     }
-
     &.show {
         left: 50px;
         @include mobile {
             left: 10px;
         }
     }
-
     img {
-        @include transition-duration(.5s);
+        transition-duration: .5s;
     }
-
     #gotohome {
         color: #fff;
         &:hover {
             img {
-                @include rotate(180deg);
+                transform: rotate(180deg);
             }
         }
     }
@@ -294,10 +272,9 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     left: 0;
     width: 100%;
     z-index: 200;
-    @include transition-property(top);
-    @include transition-duration(1s);
-    @include transition-timing-function(ease-in-out);
-
+    transition-property: top;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
     &.down {
         top: 100%;
     }
@@ -308,17 +285,14 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     height: 100%;
     margin-top: 60px;
     text-align: center;
-
     h2 {
         font-size: 128px;
         text-transform: uppercase;
         font-family: 'Bubbler One', Arial, sans-serif;
         color: white;
-
         @include minidesktop() {
             font-size: 96px;
         }
-
         @include mobile() {
             font-size: 36px;
         }
@@ -389,7 +363,6 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     text-transform: uppercase;
     height: 100px;
     overflow: hidden;
-
     @include minidesktop() {
         font-size: 20px;
         height: 40px;
@@ -399,7 +372,6 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
 
 .data {
     margin-top: 100px;
-
     h2 {
         font-size: 24px;
         text-align: center;
@@ -417,11 +389,9 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     text-align: center;
     font-family: 'Bubbler One', Arial, sans-serif;
     color: #fff;
-
     @include minidesktop() {
         width: 50%;
     }
-
     @include mobile() {
         width: 100%;
     }
@@ -438,16 +408,13 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     margin-bottom: 20px;
     overflow: hidden;
     overflow-y: auto;
-
     h3 {
         background: $darkgrey;
         margin: 0 5px;
         padding: 5px 10px;
     }
-
     ul {
         margin: 0 5px;
-
         li {
             overflow: hidden;
             height: 30px;
@@ -455,47 +422,41 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
             font-size: 13px;
             border-bottom: 1px solid $lightgrey;
             background: $grey;
-            @include transition-property(background-color);
-            @include transition-duration(.8s);
-            @include transition-timing-function(linear);
-
+            transition-property: background-color);
+            transition-duration: .8s;
+            transition-timing-function: linear);
             &.change {
-                @include transition-property(background-color);
-                @include transition-duration(.3s);
-                @include transition-timing-function(linear);
+                transition-property: background-color);
+                transition-duration: .3s;
+                transition-timing-function: linear);
                 background-color: $red;
-
                 &.down {
                     background-color: $darkgrey;
                 }
             }
-
             p {
                 margin: 0 10px;
                 display: block;
             }
         }
     }
-
-    .name, .value, .percent{
+    .name,
+    .value,
+    .percent {
         display: inline-block;
         overflow: hidden;
     }
-
-    .name{
+    .name {
         width: 45%;
     }
-
-    .value{
+    .value {
         width: 25%;
         text-align: right;
     }
-
-    .percent{
+    .percent {
         width: 25%;
         text-align: right;
     }
-
     @include mobile() {
         float: none;
         width: 100%;
@@ -516,19 +477,16 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     height: 40px;
     padding: 0 15px;
     color: $blue;
-    @include transition-property(right);
-    @include transition-duration(.25s);
-    @include transition-timing-function(ease-in-out);
+    transition-property: right;
+    transition-duration: .25s;
+    transition-timing-function: ease-in-out;
     opacity: 0.8;
-
     &.show {
         right: 100px;
     }
-
     &:hover {
         opacity: 1;
     }
-
     @include mobile {
         right: -200px;
         text-indent: -9999px;
@@ -549,14 +507,12 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     width: 50%;
     z-index: 50;
     overflow-y: auto;
-    @include transition-property(right);
-    @include transition-duration(.5s);
-    @include transition-timing-function(ease-in-out);
-
+    transition-property: right;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
     &.show {
         right: 0;
     }
-
     @include mobile() {
         right: -100%;
         width: 100%;
@@ -565,7 +521,6 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
 
 .question {
     margin: 0 20px 20px;
-
     h4 {
         color: $blue;
         font-size: 24px;
@@ -603,7 +558,6 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
     padding: 0.2em 0;
 }
 
-
 @include minidesktop() {
     canvas {
         max-height: 200px;
@@ -611,11 +565,9 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
         display: block;
         margin: auto;
     }
-
     .half.left {
         width: 100%;
     }
-
     .half.right {
         height: auto;
         position: absolute;
@@ -625,12 +577,10 @@ h1, h2, h3, h4, p, ul, li, input, textarea, div, a {
 }
 
 @include mobile() {
-
     canvas {
         max-height: none;
         max-width: none;
     }
-
     .half.right {
         display: none;
     }

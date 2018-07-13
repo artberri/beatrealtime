@@ -1,9 +1,4 @@
 node_modules
 dist
-.tmp
-.sass-cache
-app/bower_components
-bkp
-app/scripts/config.js
-app/styles/main.css
-values.txt
+.vscode
+.env
