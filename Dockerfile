@@ -13,4 +13,10 @@ RUN npm run release
 FROM nginx:mainline-alpine
 LABEL maintainer="alberto@berriart.com"
 COPY --from=builder /code/dist /usr/share/nginx/html
-
+RUN rm /etc/nginx/nginx.conf
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.default.conf /etc/nginx/conf.d/default.conf
+COPY ssl/wildcard.berriart.crt /etc/nginx/ssl/wildcard.berriart.crt
+COPY ssl/wildcard.berriart.key /etc/nginx/ssl/wildcard.berriart.key
+COPY ssl/dhparam.pem /etc/nginx/ssl/dhparam.pem

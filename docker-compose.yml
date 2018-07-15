@@ -8,5 +8,6 @@ services:
         - BEATREALTIME_GA_API_KEY=${BEATREALTIME_GA_API_KEY}
         - BEATREALTIME_TRACKING_ID=${BEATREALTIME_TRACKING_ID}
     ports:
-      - "1818:80"
+      - "1817:80"
+      - "1818:443"
 
