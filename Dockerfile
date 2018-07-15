@@ -21,7 +21,6 @@ RUN rm /etc/nginx/nginx.conf
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY nginx.default.conf /etc/nginx/conf.d/default.conf
-RUN echo $BEATREALTIME_SSL_CERT_PATH
 COPY $BEATREALTIME_SSL_CERT_PATH /etc/nginx/ssl/wildcard.berriart.crt
 COPY $BEATREALTIME_SSL_KEY_PATH /etc/nginx/ssl/wildcard.berriart.key
 COPY ssl/dhparam.pem /etc/nginx/ssl/dhparam.pem
