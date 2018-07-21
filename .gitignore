@@ -2,5 +2,3 @@ node_modules
 dist
 .vscode
 .env
-ssl/*
-!ssl/dhparam.pem
